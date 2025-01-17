@@ -1,4 +1,4 @@
-using System.ComponentModel;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -47,6 +47,24 @@ class PlayerController : MonoBehaviour
     private void HandleAttacks()
     {
         Debug.Log($"Is Atk pressed? {inputManager.standardAttackInput}. Is SpA pressed? {inputManager.specialAttackInput}.");
+
+        // If there is no cooldown, check for attack input. Otherwise, decrement the cooldown.
+        if (rangedCooldownTicks < 1)
+        {
+            // Give melee atk prio.
+            if (inputManager.standardAttackInput) { UseMeleeAtk(); attackCooldown = meleeCooldownTicks; }
+            else if (inputManager.specialAttackInput) { UseRangedAtk(); attackCooldown = rangedCooldownTicks; }
+        }
+        else { attackCooldown--; }
+    }
+
+    private void UseMeleeAtk()
+    {
+        throw new NotImplementedException();
+    }
+    private void UseRangedAtk()
+    {
+        throw new NotImplementedException();
     }
 
     private void HandleMovement()
