@@ -176,8 +176,6 @@ MonoBehaviour:
   moveSpeed: 2
   jumpTicks: 8
   jumpForce: 0.65
-  grounded: 0
-  jumpTicksLeft: 0
 --- !u!1001 &6320572806549866845
 PrefabInstance:
   m_ObjectHideFlags: 0

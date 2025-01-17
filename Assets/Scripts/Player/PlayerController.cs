@@ -12,6 +12,11 @@ class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 3;
     [SerializeField] int jumpTicks = 8;
     [SerializeField] float jumpForce = 0.65f;
+    /// <summary>
+    /// Are we backwards?
+    /// </summary>
+    /// I don't know if we need this as publicly readable, but we'll have it there just in case.
+    public bool IsFlipped { get; private set; } = false;
 
     #region movementFields
     bool grounded = true;
@@ -28,6 +33,8 @@ class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+
+        Debug.Log($"Is Atk pressed? {inputManager.standardAttackInput}. Is SpA pressed? {inputManager.specialAttackInput}.");
     }
 
     private void HandleMovement()
@@ -44,5 +51,8 @@ class PlayerController : MonoBehaviour
 
         // Reassign when done.
         rb.velocity = velocity;
+
+        // Set flipped (or not) state.
+        IsFlipped = velocity.x < 0;
     }
 }
