@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -6,7 +7,7 @@ internal class Hitbox:MonoBehaviour
 {
     Collider2D trigger;
 
-    // public Action<HealthSystem> OnHit = delegate { };
+    public Action<HealthSystem> OnHit = delegate { };
 
     private void OnEnable()
     {
@@ -22,6 +23,6 @@ internal class Hitbox:MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // if (collision.TryGetComponent(out HealthSystem target)) { OnHit(target); }
+        if (collision.TryGetComponent(out HealthSystem target)) { OnHit(target); }
     }
 }
