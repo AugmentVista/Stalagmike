@@ -51,7 +51,7 @@ class PlayerController : MonoBehaviour
         // If there is no cooldown, check for attack input. Otherwise, decrement the cooldown.
         if (rangedCooldownTicks < 1)
         {
-            // Give melee atk prio.
+            // If we have an attack input, use the attack and set the cooldown counter to the relevant cooldown length.
             if (inputManager.standardAttackInput) { UseMeleeAtk(); attackCooldown = meleeCooldownTicks; }
             else if (inputManager.specialAttackInput) { UseRangedAtk(); attackCooldown = rangedCooldownTicks; }
         }
