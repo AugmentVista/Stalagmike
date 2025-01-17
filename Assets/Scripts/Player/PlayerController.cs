@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -17,11 +18,18 @@ class PlayerController : MonoBehaviour
     /// </summary>
     /// I don't know if we need this as publicly readable, but we'll have it there just in case.
     public bool IsFlipped { get; private set; } = false;
-
-    #region movementFields
+    //#region movementFields
     bool grounded = true;
     int jumpTicksLeft = 0;
-    #endregion
+    //#endregion
+    [Header("Melee Stats")]
+    [SerializeField] Hitbox meleeHitbox;
+    [SerializeField] int meleeCooldownTicks = 15;
+    [Header("Ranged Stats")]
+    [SerializeField] GameObject ammo;
+    [SerializeField] int rangedCooldownTicks = 30;
+    // Misc Attack Stuff
+    int attackCooldown = 0;
 
     private void OnEnable()
     {
@@ -33,7 +41,11 @@ class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+        HandleAttacks();
+    }
 
+    private void HandleAttacks()
+    {
         Debug.Log($"Is Atk pressed? {inputManager.standardAttackInput}. Is SpA pressed? {inputManager.specialAttackInput}.");
     }
 
