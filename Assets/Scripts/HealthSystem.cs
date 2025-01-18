@@ -11,13 +11,16 @@ namespace Assets.Scripts
     internal class HealthSystem:MonoBehaviour
     {
         [SerializeField] bool debugMe = true;
+        [SerializeField] int maxHp = 1;
         public Action OnDeath;
-        public int health { get; protected set; } = 1;
+        public int health { get; protected set; }
 
         private void Start()
         {
+            health = maxHp;
+
             // Add a lambda to improve debugging, and prevent errors when calling this without anything assigned.
-            OnDeath += delegate { if (debugMe) { Debug.Log($"{name} was killed."); health = 1; } };
+            OnDeath += delegate { if (debugMe) { Debug.Log($"{name} was killed."); health = maxHp; } };
         }
 
         public void TakeDamage(HitInfo hit)
