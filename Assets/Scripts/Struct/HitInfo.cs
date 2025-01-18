@@ -9,6 +9,7 @@ namespace Assets.Scripts.Struct
     /// <summary>
     /// Represents a damaging hit dealt from one object to another.
     /// </summary>
+    [Serializable]
     internal struct HitInfo
     {
         public int damage;
