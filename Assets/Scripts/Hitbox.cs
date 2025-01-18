@@ -6,7 +6,7 @@ using UnityEngine;
 /// Controls the hitbox of an attack.
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
-internal class Hitbox:MonoBehaviour
+internal class Hitbox : MonoBehaviour
 {
     Collider2D trigger;
 

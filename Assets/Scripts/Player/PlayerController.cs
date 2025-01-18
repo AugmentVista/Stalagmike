@@ -2,7 +2,6 @@ using Assets.Scripts;
 using Assets.Scripts.Struct;
 using System;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody2D))]
 class PlayerController : MonoBehaviour

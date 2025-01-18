@@ -1,14 +1,10 @@
 ﻿using Assets.Scripts.Struct;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
-    internal class HealthSystem:MonoBehaviour
+    internal class HealthSystem : MonoBehaviour
     {
         /// <summary>
         /// If disabled, we wont spam the logs when OnDeath is called.
