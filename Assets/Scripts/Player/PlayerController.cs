@@ -25,14 +25,17 @@ class PlayerController : MonoBehaviour
     bool grounded = true;
     int jumpTicksLeft = 0;
     //#endregion
+
     [Header("Melee Stats")]
     [SerializeField] Hitbox meleeHitbox;
     [SerializeField] HitInfo meleeHitInfo;
     [SerializeField] int meleeCooldownTicks = 15;
+
     [Header("Ranged Stats")]
     [SerializeField] GameObject ammo;
     [SerializeField] HitInfo rangedHitInfo;
     [SerializeField] int rangedCooldownTicks = 30;
+
     // Misc Attack Stuff
     int attackCooldown = 0;
 
@@ -67,17 +70,16 @@ class PlayerController : MonoBehaviour
 
     private void UseMeleeAtk()
     {
-        bool rotation;
-        // Determine if we need to rotate the hitbox.
-        // If our last motion was backwards, we are flipped, and our hitbox should be too.
+        bool shouldRotate;
+        // Determine if we need to rotate the hitbox. If our last motion was backwards, we should be flipped, and our hitbox should be too.
         float vel = rb.velocity.x;
-        if (vel > 0) { rotation = false; }
-        else if (vel < 0) { rotation = true; }
-        else { rotation = IsFlipped; }
+        if (vel > 0) { shouldRotate = false; }
+        else if (vel < 0) { shouldRotate = true; }
+        else { shouldRotate = IsFlipped; }
 
-        // Create a rotation and set it.
-        Vector3 angles = new();
-        if (rotation) { angles = new Vector3(0, 180, 0); }
+        // Create a vector3 to set our rotation.
+        Vector3 angles = Vector3.zero;
+        if (shouldRotate) { angles = new Vector3(0, 180, 0); }
         meleeHitbox.transform.localEulerAngles = angles;
         meleeHitbox.enabled = true;
     }
