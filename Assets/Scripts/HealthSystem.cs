@@ -13,7 +13,7 @@ namespace Assets.Scripts
         [SerializeField] bool debugMe = true;
         [SerializeField] int maxHp = 1;
         public Action OnDeath;
-        public int health { get; protected set; }
+        public int health { get; protected set; } = 0;
 
         private void Start()
         {
@@ -27,7 +27,7 @@ namespace Assets.Scripts
         {
             health -= hit.damage;
 
-            if (health < 0) { OnDeath(); }
+            if (health <= 0) { OnDeath(); }
         }
     }
 }
