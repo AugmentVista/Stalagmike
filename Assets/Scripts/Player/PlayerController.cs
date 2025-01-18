@@ -1,3 +1,5 @@
+using Assets.Scripts;
+using Assets.Scripts.Struct;
 using System;
 using UnityEngine;
 
@@ -24,9 +26,11 @@ class PlayerController : MonoBehaviour
     //#endregion
     [Header("Melee Stats")]
     [SerializeField] Hitbox meleeHitbox;
+    [SerializeField] HitInfo meleeHitInfo;
     [SerializeField] int meleeCooldownTicks = 15;
     [Header("Ranged Stats")]
     [SerializeField] GameObject ammo;
+    [SerializeField] HitInfo rangedHitInfo;
     [SerializeField] int rangedCooldownTicks = 30;
     // Misc Attack Stuff
     int attackCooldown = 0;
@@ -60,7 +64,25 @@ class PlayerController : MonoBehaviour
 
     private void UseMeleeAtk()
     {
-        throw new NotImplementedException();
+        bool rotation;
+        // Determine if we need to rotate the hitbox.
+        // If our last motion was backwards, we are flipped, and our hitbox should be too.
+        float vel = rb.velocity.x;
+        if (vel > 0) { rotation = false; }
+        else if (vel < 0) { rotation = true; }
+        else { rotation = IsFlipped; }
+
+        // Create a rotation and set it.
+        Vector3 angles = new();
+        if (rotation) { angles = new Vector3(0, 180, 0); }
+        meleeHitbox.transform.localEulerAngles = angles;
+
+        // Now decide what we're doing with hit info, and then activate the hitbox.
+        meleeHitbox.OnHit += (HealthSystem target) =>
+        {
+            target.TakeDamage(meleeHitInfo); 
+            meleeHitbox.enabled = false;
+        };
     }
     private void UseRangedAtk()
     {
