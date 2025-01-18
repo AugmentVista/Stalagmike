@@ -2,6 +2,7 @@ using Assets.Scripts;
 using Assets.Scripts.Struct;
 using System;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody2D))]
 class PlayerController : MonoBehaviour
@@ -39,7 +40,9 @@ class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        // Event stuff.
         groundDetector.Landed += () => { grounded = true; };
+        meleeHitbox.OnHit += OnMeleeHit;
     }
 
     private void FixedUpdate()
@@ -76,15 +79,15 @@ class PlayerController : MonoBehaviour
         Vector3 angles = new();
         if (rotation) { angles = new Vector3(0, 180, 0); }
         meleeHitbox.transform.localEulerAngles = angles;
-
-        // Now decide what we're doing with the target, and then activate the hitbox.
-        meleeHitbox.OnHit += (HealthSystem target) =>
-        {
-            target.TakeDamage(meleeHitInfo); 
-            meleeHitbox.enabled = false;
-        };
         meleeHitbox.enabled = true;
     }
+
+    private void OnMeleeHit(HealthSystem target)
+    {
+        target.TakeDamage(meleeHitInfo);
+        meleeHitbox.enabled = false;
+    }
+
     private void UseRangedAtk()
     {
         throw new NotImplementedException();
