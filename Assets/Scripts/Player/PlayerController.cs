@@ -53,7 +53,7 @@ class PlayerController : MonoBehaviour
         //Debug.Log($"Is Atk pressed? {inputManager.standardAttackInput}. Is SpA pressed? {inputManager.specialAttackInput}.");
 
         // If there is no cooldown, check for attack input. Otherwise, decrement the cooldown.
-        if (rangedCooldownTicks < 1)
+        if (attackCooldown < 1)
         {
             // If we have an attack input, use the attack and set the cooldown counter to the relevant cooldown length.
             if (inputManager.standardAttackInput) { UseMeleeAtk(); attackCooldown = meleeCooldownTicks; }
@@ -77,12 +77,13 @@ class PlayerController : MonoBehaviour
         if (rotation) { angles = new Vector3(0, 180, 0); }
         meleeHitbox.transform.localEulerAngles = angles;
 
-        // Now decide what we're doing with hit info, and then activate the hitbox.
+        // Now decide what we're doing with the target, and then activate the hitbox.
         meleeHitbox.OnHit += (HealthSystem target) =>
         {
             target.TakeDamage(meleeHitInfo); 
             meleeHitbox.enabled = false;
         };
+        meleeHitbox.enabled = true;
     }
     private void UseRangedAtk()
     {
