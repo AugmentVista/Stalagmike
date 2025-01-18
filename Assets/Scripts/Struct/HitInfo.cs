@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Assets.Scripts.Struct
 {
     /// <summary>
-    /// Represents a damaging hit dealt from one object to another.
+    /// Represents a damaging hit dealt from one object to another, and any additional info that may need to accompany it.
     /// </summary>
     [Serializable]
     internal struct HitInfo
