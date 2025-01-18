@@ -50,7 +50,7 @@ class PlayerController : MonoBehaviour
 
     private void HandleAttacks()
     {
-        Debug.Log($"Is Atk pressed? {inputManager.standardAttackInput}. Is SpA pressed? {inputManager.specialAttackInput}.");
+        //Debug.Log($"Is Atk pressed? {inputManager.standardAttackInput}. Is SpA pressed? {inputManager.specialAttackInput}.");
 
         // If there is no cooldown, check for attack input. Otherwise, decrement the cooldown.
         if (rangedCooldownTicks < 1)
