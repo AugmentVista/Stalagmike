@@ -10,9 +10,15 @@ namespace Assets.Scripts
 {
     internal class HealthSystem:MonoBehaviour
     {
-        public Action OnDeath = delegate { };
+        [SerializeField] bool debugMe = true;
+        public Action OnDeath;
         public int health { get; protected set; } = 1;
-        
+
+        private void Start()
+        {
+            // Add a lambda to improve debugging, and prevent errors when calling this without anything assigned.
+            OnDeath += delegate { if (debugMe) { Debug.Log($"{name} was killed."); health = 1; } };
+        }
 
         public void TakeDamage(HitInfo hit)
         {
