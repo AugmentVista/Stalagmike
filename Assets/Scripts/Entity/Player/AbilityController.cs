@@ -20,6 +20,8 @@ internal class AbilityController : MonoBehaviour
 
     [Header("Ranged Stats")]
     [SerializeField] GameObject ammo;
+    [SerializeField] float startingVelocityScale = 5;
+    Vector2 tempStartVector { get { return ShouldAttackBeFlipped() ? Vector2.left : Vector2.right; } }
     [SerializeField] HitInfo rangedHitInfo;
     [SerializeField] int rangedCooldownTicks = 30;
 
@@ -60,16 +62,9 @@ internal class AbilityController : MonoBehaviour
 
     private void UseMeleeAtk()
     {
-        bool shouldRotate;
-        // Determine if we need to rotate the hitbox. If our last motion was backwards, we should be flipped, and our hitbox should be too.
-        float vel = rb.velocity.x;
-        if (vel > 0) { shouldRotate = false; }
-        else if (vel < 0) { shouldRotate = true; }
-        else { shouldRotate = pc.IsFlipped; }
-
         // Create a vector3 to set our rotation.
         Vector3 angles = Vector3.zero;
-        if (shouldRotate) { angles = new Vector3(0, 180, 0); }
+        if (ShouldAttackBeFlipped()) { angles = new Vector3(0, 180, 0); }
         meleeHitbox.transform.localEulerAngles = angles;
         meleeHitbox.enabled = true;
 
@@ -94,7 +89,7 @@ internal class AbilityController : MonoBehaviour
 
     private void OnMeleeHit(HealthSystem target)
     {
-        if(target.gameObject != gameObject)
+        if (target.gameObject != gameObject)
         {
             target.TakeDamage(meleeHitInfo);
             meleeHitbox.enabled = false;
@@ -103,6 +98,34 @@ internal class AbilityController : MonoBehaviour
 
     private void UseRangedAtk()
     {
-        throw new NotImplementedException();
+        // Create ammo at our position, and get relevant components.
+        GameObject projectile = Instantiate(ammo, transform);
+        Hitbox projectileHitbox = projectile.GetComponent<Hitbox>();
+        Rigidbody2D projectileRB = projectile.GetComponent<Rigidbody2D>();
+
+        // Set start velocity.
+        projectileRB.velocity = tempStartVector * startingVelocityScale;
+
+        // Set hit behavior.
+        projectileHitbox.OnHit += OnRangedHit;
+
+        void OnRangedHit(HealthSystem target)
+        {
+            if (target.gameObject != gameObject)
+            {
+                target.TakeDamage(rangedHitInfo);
+                Destroy(projectile);
+            }
+        }
+    }
+
+    bool ShouldAttackBeFlipped()
+    {
+        bool value;
+        float vel = rb.velocity.x;
+        if (vel > 0) { value = false; }
+        else if (vel < 0) { value = true; }
+        else { value = pc.IsFlipped; }
+        return value;
     }
 }
