@@ -10,6 +10,7 @@ class PlayerController : MonoBehaviour
     [SerializeField] GroundDetector groundDetector;
     InputManager inputManager = new();
     Rigidbody2D rb;
+    Action PhysicsProcess = delegate { };
 
     [Header("Movement Stats")]
     [SerializeField] float moveSpeed = 3;
@@ -29,6 +30,7 @@ class PlayerController : MonoBehaviour
     [SerializeField] Hitbox meleeHitbox;
     [SerializeField] HitInfo meleeHitInfo;
     [SerializeField] int meleeCooldownTicks = 15;
+    [SerializeField] int meleeActiveTicks = 5;
 
     [Header("Ranged Stats")]
     [SerializeField] GameObject ammo;
@@ -38,19 +40,23 @@ class PlayerController : MonoBehaviour
     // Misc Attack Stuff
     int attackCooldown = 0;
 
-    private void OnEnable()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         // Event stuff.
         groundDetector.Landed += () => { grounded = true; };
         meleeHitbox.OnHit += OnMeleeHit;
+    }
+
+    private void OnEnable()
+    {
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
         HandleMovement();
         HandleAttacks();
+        PhysicsProcess();
     }
 
     private void HandleAttacks()
@@ -81,6 +87,24 @@ class PlayerController : MonoBehaviour
         if (shouldRotate) { angles = new Vector3(0, 180, 0); }
         meleeHitbox.transform.localEulerAngles = angles;
         meleeHitbox.enabled = true;
+
+        // Set a timer to count down how many ticks the attack hitbox will be active if it doesn't hit anything.
+        int activeTicksLeft = meleeActiveTicks;
+
+        // Use a method so we can deactivate and unsubscribe later.
+        void AtkProcess()
+        {
+            Debug.Log("ticks left = " + activeTicksLeft);
+            activeTicksLeft--;
+            if (activeTicksLeft <= 0)
+            {
+                meleeHitbox.enabled = false;
+                PhysicsProcess -= AtkProcess;
+            }
+        }
+
+        // Add the method.
+        PhysicsProcess += AtkProcess;
     }
 
     private void OnMeleeHit(HealthSystem target)
