@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1119775156253517767}
   - component: {fileID: 4503957994046014900}
   - component: {fileID: 6943452522051643604}
+  - component: {fileID: 6349347800071026386}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -177,10 +178,23 @@ MonoBehaviour:
   moveSpeed: 2
   jumpTicks: 8
   jumpForce: 0.65
+--- !u!114 &6349347800071026386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015549383164810217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080c2c782fcfa4d41a531d549560ab92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   meleeHitbox: {fileID: 3968096114267436755}
   meleeHitInfo:
     damage: 5
   meleeCooldownTicks: 15
+  meleeActiveTicks: 5
   ammo: {fileID: 0}
   rangedHitInfo:
     damage: 0
