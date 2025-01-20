@@ -94,8 +94,11 @@ internal class AbilityController : MonoBehaviour
 
     private void OnMeleeHit(HealthSystem target)
     {
-        target.TakeDamage(meleeHitInfo);
-        meleeHitbox.enabled = false;
+        if(target.gameObject != gameObject)
+        {
+            target.TakeDamage(meleeHitInfo);
+            meleeHitbox.enabled = false;
+        }
     }
 
     private void UseRangedAtk()
