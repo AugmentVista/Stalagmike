@@ -94,7 +94,7 @@ class PlayerController : MonoBehaviour
         // Use a method so we can deactivate and unsubscribe later.
         void AtkProcess()
         {
-            Debug.Log("ticks left = " + activeTicksLeft);
+            //Debug.Log("ticks left = " + activeTicksLeft);
             activeTicksLeft--;
             if (activeTicksLeft <= 0)
             {
