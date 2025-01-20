@@ -195,9 +195,9 @@ MonoBehaviour:
     damage: 5
   meleeCooldownTicks: 15
   meleeActiveTicks: 5
-  ammo: {fileID: 0}
+  ammo: {fileID: 6987181738575193527, guid: af327ec6fa521634f9ef3be0064ad8e7, type: 3}
   rangedHitInfo:
-    damage: 0
+    damage: 5
   rangedCooldownTicks: 30
 --- !u!1 &6041095747198186919
 GameObject:
