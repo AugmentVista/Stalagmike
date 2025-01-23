@@ -15,7 +15,7 @@ namespace Assets.Scripts.Entity.Foe
         [SerializeField] protected Animator animator;
         [SerializeField] protected Rigidbody2D rb;
         [SerializeField] protected HealthSystem healthSystem;
-        Action PhysicsProcess = delegate { };
+        protected Action PhysicsProcess = delegate { };
 
         private void OnEnable()
         {
@@ -29,8 +29,14 @@ namespace Assets.Scripts.Entity.Foe
 
         private void FixedUpdate()
         {
+            HandleAI();
             HandleMovement();
             PhysicsProcess();
+        }
+
+        protected virtual void HandleAI()
+        {
+            Debug.LogWarning(new NotImplementedException("do AI things here."));
         }
 
         /// <summary>
@@ -38,7 +44,7 @@ namespace Assets.Scripts.Entity.Foe
         /// </summary>
         protected virtual void HandleMovement()
         {
-            Debug.Log("do movement things here. this isn't implemented yet.");
+            Debug.LogWarning(new NotImplementedException("do movement things here."));
         }
 
         protected virtual void OnDeath()
