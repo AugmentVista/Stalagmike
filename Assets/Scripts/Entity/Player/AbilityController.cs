@@ -12,6 +12,7 @@ internal class AbilityController : MonoBehaviour
     Action PhysicsProcess = delegate { };
 
     [Header("Melee Stats")]
+    [SerializeField] GameObject meleeAttack;
     [SerializeField] Hitbox meleeHitbox;
     [SerializeField] HitInfo meleeHitInfo;
     [SerializeField] int meleeCooldownTicks = 15;
@@ -63,8 +64,8 @@ internal class AbilityController : MonoBehaviour
         // Create a vector3 to set our rotation.
         Vector3 angles = Vector3.zero;
         if (ShouldAttackBeFlipped()) { angles = new Vector3(0, 180, 0); }
-        meleeHitbox.transform.localEulerAngles = angles;
-        meleeHitbox.enabled = true;
+        meleeAttack.transform.localEulerAngles = angles;
+        meleeAttack.SetActive(true);
 
         // Set a timer to count down how many ticks the attack hitbox will be active if it doesn't hit anything.
         int activeTicksLeft = meleeActiveTicks;
@@ -76,7 +77,7 @@ internal class AbilityController : MonoBehaviour
             activeTicksLeft--;
             if (activeTicksLeft <= 0)
             {
-                meleeHitbox.enabled = false;
+                meleeAttack.SetActive(false) ;
                 PhysicsProcess -= AtkProcess;
             }
         }
@@ -90,7 +91,7 @@ internal class AbilityController : MonoBehaviour
         if (target.gameObject != gameObject)
         {
             target.TakeDamage(meleeHitInfo);
-            meleeHitbox.enabled = false;
+            meleeAttack.SetActive(false);
         }
     }
 
