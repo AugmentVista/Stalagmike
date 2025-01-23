@@ -9,7 +9,6 @@ internal class AbilityController : MonoBehaviour
     InputManager inputManager = new();
     Rigidbody2D rb;
     PlayerController pc;
-    AbilityController abilityController;
     Action PhysicsProcess = delegate { };
 
     [Header("Melee Stats")]
@@ -38,7 +37,6 @@ internal class AbilityController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         pc = GetComponent<PlayerController>();
-        abilityController = GetComponent<AbilityController>();
     }
     private void FixedUpdate()
     {
