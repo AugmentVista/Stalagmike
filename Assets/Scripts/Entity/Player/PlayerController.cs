@@ -1,3 +1,6 @@
+using Assets.Scripts;
+using Assets.Scripts.Struct;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -7,27 +10,39 @@ class PlayerController : MonoBehaviour
     [SerializeField] GroundDetector groundDetector;
     InputManager inputManager = new();
     Rigidbody2D rb;
+    AbilityController abilityController;
+    Action PhysicsProcess = delegate { };
 
     [Header("Movement Stats")]
     [SerializeField] float moveSpeed = 3;
     [SerializeField] int jumpTicks = 8;
     [SerializeField] float jumpForce = 0.65f;
-
-    #region movementFields
+    /// <summary>
+    /// Are we backwards?
+    /// </summary>
+    /// I don't know if we need this as publicly readable, but we'll have it there just in case.
+    public bool IsFlipped { get; private set; } = false;
+    //#region movementFields
     bool grounded = true;
     int jumpTicksLeft = 0;
-    #endregion
+    //#endregion
+
+    private void Start()
+    {
+        // Event stuff.
+        groundDetector.Landed += () => { grounded = true; };
+    }
 
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        groundDetector.Landed += () => { grounded = true; };
+        abilityController = GetComponent<AbilityController>();
     }
 
     private void FixedUpdate()
     {
         HandleMovement();
+        PhysicsProcess();
     }
 
     private void HandleMovement()
@@ -44,5 +59,8 @@ class PlayerController : MonoBehaviour
 
         // Reassign when done.
         rb.velocity = velocity;
+
+        // Set flipped (or not) state.
+        IsFlipped = velocity.x < 0;
     }
 }

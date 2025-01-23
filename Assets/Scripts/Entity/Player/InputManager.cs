@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Used to read player input.
@@ -14,6 +13,8 @@ internal class InputManager
     /// Is the player pressing space?
     /// </summary>
     public bool jumpInput { get { return Input.GetKey(KeyCode.Space); } }
+    public bool standardAttackInput { get { return Input.GetMouseButton(0); } }
+    public bool specialAttackInput { get { return Input.GetMouseButton(1); } }
 
     private float ReadMoveInput()
     {
