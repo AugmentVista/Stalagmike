@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundDetector: {fileID: 282553643132553166}
   moveSpeed: 2
-  jumpTicks: 8
+  jumpTicks: 10
   jumpForce: 0.65
 --- !u!114 &6349347800071026386
 MonoBehaviour:
@@ -196,6 +196,7 @@ MonoBehaviour:
   meleeCooldownTicks: 15
   meleeActiveTicks: 5
   ammo: {fileID: 6987181738575193527, guid: af327ec6fa521634f9ef3be0064ad8e7, type: 3}
+  startingVelocityScale: 5
   rangedHitInfo:
     damage: 5
   rangedCooldownTicks: 30
