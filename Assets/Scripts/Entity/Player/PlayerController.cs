@@ -1,5 +1,3 @@
-using Assets.Scripts;
-using Assets.Scripts.Struct;
 using System;
 using UnityEngine;
 
