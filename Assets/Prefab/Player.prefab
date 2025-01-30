@@ -130,9 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDetector: {fileID: 282553643132553166}
-  moveSpeed: 2
+  moveSpeed: 4
   jumpTicks: 10
-  jumpForce: 0.65
+  jumpForce: 1
 --- !u!114 &6349347800071026386
 MonoBehaviour:
   m_ObjectHideFlags: 0
