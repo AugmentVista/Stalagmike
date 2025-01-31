@@ -1,26 +1,43 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe
 {
     internal class Class1:MonoBehaviour
     {
-        [SerializeField] foebehavior patrol, chase;
+        // Refs go here, idk what i need.
+        [Header("Refs")]
+        [SerializeField] protected GroundDetector groundDetector;
+        [SerializeField] protected Animator animator;
+        [SerializeField] protected Rigidbody2D rb;
+        [SerializeField] protected HealthSystem healthSystem;
+        protected Action PhysicsProcess = delegate { };
+
+        // Behaviors
+        [SerializeField] FoeBehavior patrol, chase, attack;
         PlayerDetector playerDetector;
-        int stateInt;
+        int stateInt; // replaces an enum
 
         void Ready()
         {
             playerDetector = GetComponent<PlayerDetector>();
             chase.detector = playerDetector;
+            chase.Attack = attack.Execute();
         }
 
-        void PhysicsProcess()
+        void _PhysicsProcess()
         {
             switch (stateInt)
             {
                 case 0: patrol.Execute(); break;
                 case 1: chase.Execute(); break;
             }
+        }
+
+        enum AIState
+        {
+            Patrol,
+            Chase,
         }
     }
 }
