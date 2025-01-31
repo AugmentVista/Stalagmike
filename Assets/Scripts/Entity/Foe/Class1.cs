@@ -13,7 +13,8 @@ namespace Assets.Scripts.Entity.Foe
         [SerializeField] protected HealthSystem healthSystem;
         protected Action PhysicsProcess = delegate { };
 
-        [SerializeField] foebehavior patrol, chase;
+        // Behaviors
+        [SerializeField] FoeBehavior patrol, chase, attack;
         PlayerDetector playerDetector;
         int stateInt; // replaces an enum
 
@@ -21,6 +22,7 @@ namespace Assets.Scripts.Entity.Foe
         {
             playerDetector = GetComponent<PlayerDetector>();
             chase.detector = playerDetector;
+            chase.Attack = attack.Execute();
         }
 
         void _PhysicsProcess()
