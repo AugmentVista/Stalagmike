@@ -1,12 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe
 {
     internal class Class1:MonoBehaviour
     {
+        // Refs go here, idk what i need.
+        [Header("Refs")]
+        [SerializeField] protected GroundDetector groundDetector;
+        [SerializeField] protected Animator animator;
+        [SerializeField] protected Rigidbody2D rb;
+        [SerializeField] protected HealthSystem healthSystem;
+        protected Action PhysicsProcess = delegate { };
+
         [SerializeField] foebehavior patrol, chase;
         PlayerDetector playerDetector;
-        int stateInt;
+        int stateInt; // replaces an enum
 
         void Ready()
         {
@@ -14,7 +23,7 @@ namespace Assets.Scripts.Entity.Foe
             chase.detector = playerDetector;
         }
 
-        void PhysicsProcess()
+        void _PhysicsProcess()
         {
             switch (stateInt)
             {
