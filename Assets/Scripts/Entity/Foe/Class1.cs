@@ -12,32 +12,42 @@ namespace Assets.Scripts.Entity.Foe
         [SerializeField] protected Animator animator;
         [SerializeField] protected Rigidbody2D rb;
         [SerializeField] protected HealthSystem healthSystem;
-        protected Action PhysicsProcess = delegate { };
+        protected Action PhysicsProcess;
+        protected Action<AIState> StateChanged;
 
         // Behaviors
         [SerializeField] FoeBehavior patrol;
         [SerializeField] ChaseBehavior chase;
         [SerializeField] AttackBehavior attack;
         PlayerDetector playerDetector;
-        int stateInt; // replaces an enum
+        protected AIState State { get { return State; } set { StateChanged(value); state = value; } }
+        AIState state;
 
-        void Ready()
+        void Start()
         {
             playerDetector = GetComponent<PlayerDetector>();
             chase.detector = playerDetector;
             chase.Attack = attack.Execute;
+
+            PhysicsProcess = _PhysicsProcess;
+            StateChanged = _StateChanged;
         }
 
         void _PhysicsProcess()
         {
-            switch (stateInt)
+            switch (State)
             {
-                case 0: patrol.Execute(); break;
-                case 1: chase.Execute(); break;
+                case AIState.Patrol: patrol.Execute(); break;
+                case AIState.Chase: chase.Execute(); break;
             }
         }
 
-        enum AIState
+        protected virtual void _StateChanged(AIState state)
+        {
+            Debug.Log($"Foe {name} state set to {state}");
+        }
+
+        protected enum AIState
         {
             Patrol,
             Chase,
