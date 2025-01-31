@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Entity.Foe
 {
-    internal class FoeBehavior
+    internal abstract class FoeBehavior
     {
         internal Action Attack;
 
