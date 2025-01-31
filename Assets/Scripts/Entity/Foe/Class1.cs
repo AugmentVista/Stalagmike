@@ -31,5 +31,11 @@ namespace Assets.Scripts.Entity.Foe
                 case 1: chase.Execute(); break;
             }
         }
+
+        enum AIState
+        {
+            Patrol,
+            Chase,
+        }
     }
 }
