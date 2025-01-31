@@ -2,10 +2,8 @@
 
 namespace Assets.Scripts.Entity.Foe
 {
-    internal abstract class FoeBehavior
+    internal abstract class FoeBehavior : AttackBehavior
     {
-        internal Action Attack;
-
         internal virtual void Execute()
         {
             throw new NotImplementedException();
