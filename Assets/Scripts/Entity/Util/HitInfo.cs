@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Scripts.Struct
+namespace Assets.Scripts.Entity.Util
 {
     /// <summary>
     /// Represents a damaging hit dealt from one object to another, and any additional info that may need to accompany it.
