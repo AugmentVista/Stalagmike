@@ -1,5 +1,3 @@
-using Assets.Scripts;
-using Assets.Scripts.Struct;
 using System;
 using UnityEngine;
 
@@ -61,6 +59,8 @@ class PlayerController : MonoBehaviour
         rb.velocity = velocity;
 
         // Set flipped (or not) state.
-        IsFlipped = velocity.x < 0;
+        //IsFlipped = velocity.x < 0;
+        if (velocity.x < 0) { IsFlipped = true; }
+        else if (velocity.x > 0) { IsFlipped = false; }
     }
 }
