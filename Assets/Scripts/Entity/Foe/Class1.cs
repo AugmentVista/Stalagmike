@@ -20,7 +20,7 @@ namespace Assets.Scripts.Entity.Foe
         [SerializeField] ChaseBehavior chase;
         [SerializeField] AttackBehavior attack;
         PlayerDetector playerDetector;
-        protected AIState State { get { return State; } set { StateChanged(value); state = value; } }
+        protected AIState State { get { return state; } set { StateChanged(value); state = value; } }
         AIState state;
 
         void Start()
