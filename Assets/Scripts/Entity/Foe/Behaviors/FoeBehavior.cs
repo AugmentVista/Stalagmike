@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Assets.Scripts.Entity.Foe
+namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    internal abstract class FoeBehavior : AttackBehavior
+    internal abstract class FoeBehavior
     {
         internal virtual void Execute()
         {

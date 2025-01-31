@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Entity.Foe.Behaviors;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe
@@ -14,7 +15,9 @@ namespace Assets.Scripts.Entity.Foe
         protected Action PhysicsProcess = delegate { };
 
         // Behaviors
-        [SerializeField] FoeBehavior patrol, chase, attack;
+        [SerializeField] FoeBehavior patrol;
+        [SerializeField] ChaseBehavior chase;
+        [SerializeField] AttackBehavior attack;
         PlayerDetector playerDetector;
         int stateInt; // replaces an enum
 
@@ -22,7 +25,7 @@ namespace Assets.Scripts.Entity.Foe
         {
             playerDetector = GetComponent<PlayerDetector>();
             chase.detector = playerDetector;
-            chase.Attack = attack.Execute();
+            chase.Attack = attack.Execute;
         }
 
         void _PhysicsProcess()

@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Assets.Scripts.Entity.Foe
+namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    internal abstract class AttackBehavior
+    internal class AttackBehavior:FoeBehavior
     {
-        internal Action Attack;
     }
 }
