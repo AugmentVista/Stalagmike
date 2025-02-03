@@ -20,6 +20,9 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             // calculate new velocity and apply it.
             Vector2 targetVel = new Vector2(targetHVel, 0).normalized * targetSpeed;
             rb.velocity = Vector2.Lerp(rb.velocity, targetVel, accel);
+
+            if(Vector2.Distance(rb.position,start) < targetSpeed) { isForward = false; }
+            else if (Vector2.Distance(rb.position, end) < targetSpeed) { isForward = true; }
         }
 
         protected override void OnPlayerDetected(PlayerController player)
