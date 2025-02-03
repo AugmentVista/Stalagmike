@@ -21,5 +21,19 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             Vector2 targetVel = new Vector2(targetHVel, 0).normalized * targetSpeed;
             rb.velocity = Vector2.Lerp(rb.velocity, targetVel, accel);
         }
+
+        protected override void OnPlayerDetected(PlayerController player)
+        {
+            base.OnPlayerDetected(player);
+            SetState(Class1.AIState.Chase);
+        }
+
+        protected override void OnPlayerLost()
+        {
+            base.OnPlayerLost();
+
+            // Yes, this is here because we're relying on the patrol trigger to determine chase.
+            SetState(Class1.AIState.Patrol);
+        }
     }
 }
