@@ -17,18 +17,18 @@ namespace Assets.Scripts.Entity.Foe
 
         // Behaviors
         [SerializeField] FoeBehavior patrol;
+        [SerializeField] PlayerDetector patrolPlayerDetector;
         [SerializeField] ChaseBehavior chase;
+        [SerializeField] PlayerDetector chasePlayerDetector;
         [SerializeField] AttackBehavior attack;
         [SerializeField] Hitbox attackHitbox;
-        [SerializeField] PlayerDetector chaseRangeDetector;
-        [SerializeField] PlayerDetector atkRangeDetector;
         protected AIState State { get { return state; } set { StateChanged(value); state = value; } }
         AIState state;
 
         void Start()
         {
-            patrol.playerDetector = chaseRangeDetector;
-            chase.playerDetector = atkRangeDetector;
+            patrol.playerDetector = patrolPlayerDetector;
+            chase.playerDetector = chasePlayerDetector;
             attack.hitbox = attackHitbox;
             chase.Attack = attack.Execute;
 
