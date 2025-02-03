@@ -8,6 +8,6 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
 {
     internal class ChaseBehaviorBase:FoeBehavior
     {
-        internal Action Attack;
+        internal Action<Class1> Attack;
     }
 }

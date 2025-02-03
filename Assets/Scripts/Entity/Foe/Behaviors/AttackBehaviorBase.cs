@@ -9,10 +9,10 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         [SerializeField] protected HitInfo hit;
         internal Hitbox hitbox;
 
-        internal override void Execute()
+        internal override void Execute(Class1 parent)
         {
             // Keep the warning here.
-            base.Execute();
+            base.Execute(parent);
 
             hitbox.enabled = true; // TODO: Currently this produces an infinite duration bug. Pls fix later.
         }

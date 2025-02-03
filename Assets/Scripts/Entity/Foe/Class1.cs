@@ -51,8 +51,8 @@ namespace Assets.Scripts.Entity.Foe
         {
             switch (State)
             {
-                case AIState.Patrol: patrol.Execute(); break;
-                case AIState.Chase: chase.Execute(); break;
+                case AIState.Patrol: patrol.Execute(this); break;
+                case AIState.Chase: chase.Execute(this); break;
             }
         }
 

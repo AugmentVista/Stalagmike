@@ -8,7 +8,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         internal Action<Class1.AIState> SetState;
         internal PlayerDetector playerDetector;
 
-        internal virtual void Execute()
+        internal virtual void Execute(Class1 parent)
         {
             Debug.LogWarning(new NotImplementedException("FoeBehavior.Execute() should be overridden."));
         }
