@@ -4,7 +4,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
 {
     internal abstract class FoeBehavior
     {
-        internal PlayerDetector detector;
+        internal PlayerDetector playerDetector;
 
         internal virtual void Execute()
         {

@@ -26,8 +26,8 @@ namespace Assets.Scripts.Entity.Foe
 
         void Start()
         {
-            patrol.detector = chaseRangeDetector;
-            chase.detector = atkRangeDetector;
+            patrol.playerDetector = chaseRangeDetector;
+            chase.playerDetector = atkRangeDetector;
             chase.Attack = attack.Execute;
 
             PhysicsProcess = _PhysicsProcess;
