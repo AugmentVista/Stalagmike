@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
 
         internal virtual void Execute()
         {
-            throw new NotImplementedException();
+            Debug.LogWarning(new NotImplementedException("FoeBehavior.Execute() should be overridden."));
         }
     }
 }
