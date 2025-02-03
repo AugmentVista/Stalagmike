@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe
 {
-    internal class Class1:MonoBehaviour
+    internal class Class1 : MonoBehaviour
     {
         // Refs go here, idk what i need.
         [Header("Refs")]
@@ -19,14 +19,15 @@ namespace Assets.Scripts.Entity.Foe
         [SerializeField] FoeBehavior patrol;
         [SerializeField] ChaseBehavior chase;
         [SerializeField] AttackBehavior attack;
-        PlayerDetector playerDetector;
+        [SerializeField] PlayerDetector chaseRangeDetector;
+        [SerializeField] PlayerDetector atkRangeDetector;
         protected AIState State { get { return state; } set { StateChanged(value); state = value; } }
         AIState state;
 
         void Start()
         {
-            playerDetector = GetComponent<PlayerDetector>();
-            chase.detector = playerDetector;
+            patrol.detector = chaseRangeDetector;
+            chase.detector = atkRangeDetector;
             chase.Attack = attack.Execute;
 
             PhysicsProcess = _PhysicsProcess;
