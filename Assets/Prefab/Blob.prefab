@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5371465527301402818}
   - component: {fileID: 7701724696322323559}
   - component: {fileID: 6522701635895470438}
+  - component: {fileID: 2841937498515951391}
   m_Layer: 0
   m_Name: Blob
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5604312987955109456}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7afa342a98842e34a95e9021814ea7f1, type: 3}
   m_Name: 
@@ -245,6 +246,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &2841937498515951391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604312987955109456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112c389abbb9280439bd3954eb808d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundDetector: {fileID: 6143723277362648186}
+  animator: {fileID: 5251805740929443311}
+  rb: {fileID: 5371465527301402818}
+  healthSystem: {fileID: 7701724696322323559}
+  patrol: {fileID: 11400000, guid: 66d5abd89dd463047a87100849da6b8e, type: 2}
+  patrolPlayerDetector: {fileID: 0}
+  chase: {fileID: 11400000, guid: 82da7871a54638e4fb3f1418f3b05f44, type: 2}
+  chasePlayerDetector: {fileID: 0}
+  attack: {fileID: 0}
+  attackHitbox: {fileID: 0}
 --- !u!1001 &80530109843462889
 PrefabInstance:
   m_ObjectHideFlags: 0
