@@ -14,7 +14,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             // Keep the warning here.
             base.Execute();
 
-            hitbox.enabled = true;
+            hitbox.enabled = true; // TODO: Currently this produces an infinite duration bug. Pls fix later.
         }
 
         internal override void Init()
@@ -25,6 +25,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         protected virtual void OnHit(HealthSystem healthSystem)
         {
             healthSystem.TakeDamage(hit);
+            hitbox.enabled = false;
         }
     }
 }
