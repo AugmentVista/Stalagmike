@@ -27,6 +27,7 @@ namespace Assets.Scripts.Entity.Foe
 
         void Start()
         {
+            // Set refs
             patrol.playerDetector = patrolPlayerDetector;
             chase.playerDetector = chasePlayerDetector;
             attack.hitbox = attackHitbox;
@@ -34,6 +35,16 @@ namespace Assets.Scripts.Entity.Foe
 
             PhysicsProcess = _PhysicsProcess;
             StateChanged = _StateChanged;
+
+            // Add setstate actions
+            patrol.SetState = SetState;
+            chase.SetState = SetState;
+            attack.SetState = SetState;
+
+            void SetState(AIState state)
+            {
+                State = state;
+            }
         }
 
         void _PhysicsProcess()
@@ -50,7 +61,7 @@ namespace Assets.Scripts.Entity.Foe
             Debug.Log($"Foe {name} state set to {state}");
         }
 
-        protected enum AIState
+        public enum AIState
         {
             Patrol,
             Chase,
