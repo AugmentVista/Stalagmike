@@ -11,7 +11,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
     {
         internal Action<Class1> Attack;
 
-        [SerializeField] protected float targetSpeed;
-        [SerializeField] protected float accel; // as a factor of target velocity
+        [SerializeField] protected float targetSpeed = 4;
+        [SerializeField] protected float accel = 0.85f; // as a factor of target velocity
     }
 }

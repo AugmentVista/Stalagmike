@@ -11,8 +11,8 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
     {
         [SerializeField] protected Vector3 start;
         [SerializeField] protected Vector3 end;
-        [SerializeField] protected float targetSpeed;
-        [SerializeField] protected float accel; // as a factor of target velocity
+        [SerializeField] protected float targetSpeed = 2;
+        [SerializeField] protected float accel = 0.95f; // as a factor of target velocity
 
         protected bool isForward = true;
     }
