@@ -7,6 +7,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
     {
         internal Action<Class1.AIState> SetState;
         internal PlayerDetector playerDetector;
+        protected PlayerController player;
 
         internal virtual void Execute(Class1 parent)
         {
@@ -19,6 +20,19 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         internal virtual void Init()
         {
             Debug.Log("This should probably be overridden.");
+
+            playerDetector.PlayerDetected += OnPlayerDetected;
+            playerDetector.PlayerLost += OnPlayerLost;
+        }
+
+        protected virtual void OnPlayerLost()
+        {
+            player = null;
+        }
+
+        protected virtual void OnPlayerDetected(PlayerController player)
+        {
+            this.player = player;
         }
     }
 }

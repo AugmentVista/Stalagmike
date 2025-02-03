@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
+    [CreateAssetMenu(menuName ="FoeBehaviors")]
     internal class Patrol1:PatrolBehaviorBase
     {
         internal override void Execute(Class1 parent)
