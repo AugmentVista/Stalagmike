@@ -12,6 +12,9 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             Debug.LogWarning(new NotImplementedException("FoeBehavior.Execute() should be overridden."));
         }
 
+        /// <summary>
+        /// Use this for initialization, call after start/ready whatever its called.
+        /// </summary>
         internal virtual void Init()
         {
             Debug.Log("This should probably be overridden.");
