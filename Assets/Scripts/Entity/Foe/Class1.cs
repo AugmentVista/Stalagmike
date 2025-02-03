@@ -19,6 +19,7 @@ namespace Assets.Scripts.Entity.Foe
         [SerializeField] FoeBehavior patrol;
         [SerializeField] ChaseBehavior chase;
         [SerializeField] AttackBehavior attack;
+        [SerializeField] Hitbox attackHitbox;
         [SerializeField] PlayerDetector chaseRangeDetector;
         [SerializeField] PlayerDetector atkRangeDetector;
         protected AIState State { get { return state; } set { StateChanged(value); state = value; } }
@@ -28,6 +29,7 @@ namespace Assets.Scripts.Entity.Foe
         {
             patrol.playerDetector = chaseRangeDetector;
             chase.playerDetector = atkRangeDetector;
+            attack.hitbox = attackHitbox;
             chase.Attack = attack.Execute;
 
             PhysicsProcess = _PhysicsProcess;
