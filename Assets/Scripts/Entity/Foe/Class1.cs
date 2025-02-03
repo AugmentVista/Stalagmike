@@ -18,9 +18,9 @@ namespace Assets.Scripts.Entity.Foe
         // Behaviors
         [SerializeField] FoeBehavior patrol;
         [SerializeField] PlayerDetector patrolPlayerDetector;
-        [SerializeField] ChaseBehavior chase;
+        [SerializeField] ChaseBehaviorBase chase;
         [SerializeField] PlayerDetector chasePlayerDetector;
-        [SerializeField] AttackBehavior attack;
+        [SerializeField] AttackBehaviorBase attack;
         [SerializeField] Hitbox attackHitbox;
         protected AIState State { get { return state; } set { StateChanged(value); state = value; } }
         AIState state;

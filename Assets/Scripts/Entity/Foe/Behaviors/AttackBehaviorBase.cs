@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    internal class AttackBehavior:FoeBehavior
+    internal class AttackBehaviorBase:FoeBehavior
     {
         [SerializeField] protected HitInfo hit;
         internal Hitbox hitbox;

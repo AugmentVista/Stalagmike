@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    internal class ChaseBehavior:FoeBehavior
+    internal class ChaseBehaviorBase:FoeBehavior
     {
-        internal PlayerDetector playerDetector;
         internal Action Attack;
     }
 }
