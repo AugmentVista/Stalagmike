@@ -9,10 +9,16 @@ namespace Assets.Scripts.Entity.Foe
     internal class PlayerDetector:MonoBehaviour
     {
         public Action<PlayerController> PlayerDetected = delegate { };
+        public Action PlayerLost = delegate { };
+        PlayerController player;
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.TryGetComponent(out PlayerController controller)) {  PlayerDetected(controller); }
+            if(other.TryGetComponent(out PlayerController player)) {  PlayerDetected(player); this.player = player; }
+        }
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if(other.TryGetComponent(out PlayerController player) && this.player == player) { this.player = null; PlayerLost(); }
         }
     }
 }
