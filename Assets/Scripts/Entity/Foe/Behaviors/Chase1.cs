@@ -17,9 +17,9 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
             // calculate target horizontal direction as a float. (we really only care about its sign.)
             float hPos = rb.position.x;
-            float targetHVel = hPos - player.transform.position.x;
+            float targetHVel = hPos - parent.Target.transform.position.x;
             // calculate new velocity and apply it.
-            Vector2 targetVel = new Vector2(targetHVel, 0).normalized * targetSpeed;
+            Vector2 targetVel = new Vector2(targetHVel, rb.velocity.y).normalized * targetSpeed;
             rb.velocity = Vector2.Lerp(rb.velocity, targetVel, accel);
         }
 

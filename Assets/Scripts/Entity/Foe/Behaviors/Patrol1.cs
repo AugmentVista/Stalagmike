@@ -18,7 +18,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             float hPos = rb.position.x;
             float targetHVel = isForward ? hPos - start.x : hPos - end.x;
             // calculate new velocity and apply it.
-            Vector2 targetVel = new Vector2(targetHVel, 0).normalized * targetSpeed;
+            Vector2 targetVel = new Vector2(targetHVel, rb.velocity.y).normalized * targetSpeed;
             rb.velocity = Vector2.Lerp(rb.velocity, targetVel, accel);
 
             if(Vector2.Distance(rb.position,start) < targetSpeed) { isForward = false; }
