@@ -78,6 +78,7 @@ namespace Assets.Scripts.Entity.Foe
         private void OnPlayerDetected(PlayerController controller)
         {
             Target = controller;
+            Debug.Log($"Foe {name} found player {controller.name}");
         }
 
         private void OnPlayerLost()
