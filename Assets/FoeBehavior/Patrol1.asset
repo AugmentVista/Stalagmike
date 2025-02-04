@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b4d2d39b156bf48b433688a16fa4b3, type: 3}
   m_Name: Patrol1
   m_EditorClassIdentifier: 
-  start: {x: 0, y: 0, z: 0}
-  end: {x: 0, y: 0, z: 0}
+  start: {x: 2, y: -7}
+  end: {x: 16, y: -14}
   targetSpeed: 2
   accel: 0.95
