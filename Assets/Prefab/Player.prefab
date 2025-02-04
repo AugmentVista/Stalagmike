@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundDetector: {fileID: 282553643132553166}
   moveSpeed: 4
-  jumpTicks: 10
+  jumpTicks: 7
   jumpForce: 1
 --- !u!114 &6349347800071026386
 MonoBehaviour:
