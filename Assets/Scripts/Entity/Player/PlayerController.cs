@@ -6,7 +6,6 @@ class PlayerController : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] GroundDetector groundDetector;
-    InputManager inputManager = new();
     Rigidbody2D rb;
     AbilityController abilityController;
     Action PhysicsProcess = delegate { };
@@ -47,13 +46,13 @@ class PlayerController : MonoBehaviour
     {
         // Get current and target velocity
         Vector2 velocity = rb.velocity;
-        float targetVel = inputManager.moveValue * moveSpeed;
+        float targetVel = InputManager.moveValue * moveSpeed;
 
         velocity.x = Mathf.Lerp(targetVel, velocity.x, Time.fixedDeltaTime);
 
         // Do jumpy things here.
-        if (inputManager.jumpInput && grounded) { jumpTicksLeft = jumpTicks; grounded = false; }
-        if (inputManager.jumpInput && jumpTicksLeft > 0) { velocity.y += jumpForce; jumpTicksLeft--; }
+        if (InputManager.jumpInput && grounded) { jumpTicksLeft = jumpTicks; grounded = false; }
+        if (InputManager.jumpInput && jumpTicksLeft > 0) { velocity.y += jumpForce; jumpTicksLeft--; }
 
         // Reassign when done.
         rb.velocity = velocity;

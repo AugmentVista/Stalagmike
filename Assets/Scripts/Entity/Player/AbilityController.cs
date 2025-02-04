@@ -6,7 +6,6 @@ using UnityEngine;
 internal class AbilityController : MonoBehaviour
 {
     [Header("Refs")]
-    InputManager inputManager = new();
     Rigidbody2D rb;
     PlayerController pc;
     Action PhysicsProcess = delegate { };
@@ -53,8 +52,8 @@ internal class AbilityController : MonoBehaviour
         if (attackCooldown < 1)
         {
             // If we have an attack input, use the attack and set the cooldown counter to the relevant cooldown length.
-            if (inputManager.standardAttackInput) { UseMeleeAtk(); attackCooldown = meleeCooldownTicks; }
-            else if (inputManager.specialAttackInput) { UseRangedAtk(); attackCooldown = rangedCooldownTicks; }
+            if (InputManager.standardAttackInput) { UseMeleeAtk(); attackCooldown = meleeCooldownTicks; }
+            else if (InputManager.specialAttackInput) { UseRangedAtk(); attackCooldown = rangedCooldownTicks; }
         }
         else { attackCooldown--; }
     }
