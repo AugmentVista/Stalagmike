@@ -35,6 +35,8 @@ namespace Assets.Scripts.Entity.Foe
             attack.hitbox = attackHitbox;
             chase.Attack = attack.Execute;
 
+            patrolPlayerDetector.PlayerDetected += OnPlayerDetected;
+            patrolPlayerDetector.PlayerLost += OnPlayerLost;
             PhysicsProcess = _PhysicsProcess;
             StateChanged = _StateChanged;
 
@@ -71,6 +73,16 @@ namespace Assets.Scripts.Entity.Foe
         protected virtual void _StateChanged(AIState state)
         {
             Debug.Log($"Foe {name} state set to {state}");
+        }
+
+        private void OnPlayerDetected(PlayerController controller)
+        {
+            Target = controller;
+        }
+
+        private void OnPlayerLost()
+        {
+            Target = null;
         }
 
         public enum AIState
