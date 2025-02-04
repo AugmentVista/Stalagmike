@@ -21,7 +21,7 @@ class PlayerController : MonoBehaviour
     /// I don't know if we need this as publicly readable, but we'll have it there just in case.
     public bool IsFlipped { get; private set; } = false;
     //#region movementFields
-    bool grounded = true;
+    bool grounded = false;
     int jumpTicksLeft = 0;
     //#endregion
 
