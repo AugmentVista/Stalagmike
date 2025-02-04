@@ -27,7 +27,7 @@ namespace Assets.Scripts.Entity.Foe
         protected AIState State { get { return state; } set { StateChanged(value); state = value; } }
         AIState state;
 
-        void Start()
+        protected virtual void Start()
         {
             // Set refs
             patrol.playerDetector = patrolPlayerDetector;
@@ -39,6 +39,7 @@ namespace Assets.Scripts.Entity.Foe
             patrolPlayerDetector.PlayerLost += OnPlayerLost;
             PhysicsProcess = _PhysicsProcess;
             StateChanged = _StateChanged;
+            healthSystem.OnDeath += OnDeath;
 
             // Add setstate actions
             patrol.SetState = SetState;
@@ -81,9 +82,14 @@ namespace Assets.Scripts.Entity.Foe
             Debug.Log($"Foe {name} found player {controller.name}");
         }
 
-        private void OnPlayerLost()
+        protected virtual void OnPlayerLost()
         {
             Target = null;
+        }
+
+        protected virtual void OnDeath()
+        {
+            Destroy(gameObject);
         }
 
         public enum AIState
