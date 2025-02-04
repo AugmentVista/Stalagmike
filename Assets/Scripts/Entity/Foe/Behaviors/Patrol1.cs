@@ -16,12 +16,12 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
             // calculate target horizontal direction as a float. (we really only care about its sign.)
             float hPos = rb.position.x;
-            float targetHVel = isForward ? hPos - start.x : hPos - end.x;
+            float targetDirection = isForward ? hPos - start.x : hPos - end.x;
             // calculate new velocity and apply it.
-            Vector2 targetVel = new Vector2(targetHVel, rb.velocity.y).normalized * targetSpeed;
-            rb.velocity = Vector2.Lerp(rb.velocity, targetVel, accel);
+            float targetHVel = (new Vector2(targetDirection, 0) * targetSpeed).x;
+            rb.velocity = Vector2.Lerp(rb.velocity, new(targetHVel, 0), accel);
 
-            if(Vector2.Distance(rb.position,start) < targetSpeed) { isForward = false; }
+            if (Vector2.Distance(rb.position,start) < targetSpeed) { isForward = false; }
             else if (Vector2.Distance(rb.position, end) < targetSpeed) { isForward = true; }
         }
 
