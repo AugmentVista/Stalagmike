@@ -9,6 +9,10 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         internal PlayerDetector playerDetector;
         protected PlayerController player;
 
+        /// <summary>
+        /// Run the behavior's main action.
+        /// </summary>
+        /// <param name="parent">What thing is executing this code? This probably can be replaced.</param>
         internal virtual void Execute(FoeBase parent)
         {
             Debug.LogWarning(new NotImplementedException("FoeBehavior.Execute() should be overridden."));
