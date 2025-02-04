@@ -13,8 +13,8 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             float hPos = rb.position.x;
             float targetDirection = parent.Target.transform.position.x - hPos;
             // calculate new velocity and apply it.
-            float targetHVel = (new Vector2(targetDirection, 0) * targetSpeed).x;
-            rb.velocity = Vector2.Lerp(rb.velocity, new(targetHVel, 0), accel);
+            float targetHVel = (new Vector2(targetDirection, 0).normalized * targetSpeed).x;
+            rb.velocity = Vector2.Lerp(rb.velocity, new(targetHVel, rb.velocity.y), accel);
         }
 
         protected override void OnPlayerDetected(PlayerController player)
