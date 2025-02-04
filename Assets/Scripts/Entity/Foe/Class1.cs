@@ -41,10 +41,20 @@ namespace Assets.Scripts.Entity.Foe
             chase.SetState = SetState;
             attack.SetState = SetState;
 
+            // Initialize everything.
+            patrol.Init();
+            chase.Init();
+            attack.Init();
+
             void SetState(AIState state)
             {
                 State = state;
             }
+        }
+
+        private void FixedUpdate()
+        {
+            PhysicsProcess();
         }
 
         void _PhysicsProcess()
