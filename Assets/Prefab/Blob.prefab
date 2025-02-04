@@ -189,8 +189,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6460543490544254591}
-  - component: {fileID: 785164900083198711}
   - component: {fileID: 1777893791734011769}
+  - component: {fileID: 785164900083198711}
   m_Layer: 0
   m_Name: PatrolDetector
   m_TagString: Untagged
@@ -213,18 +213,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5604312987955109463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &785164900083198711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2539626544827317950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98e084754c178dd429ad4b922ba33990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1777893791734011769
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,6 +258,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &785164900083198711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539626544827317950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e084754c178dd429ad4b922ba33990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5604312987636026123
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +369,9 @@ GameObject:
   - component: {fileID: 6522701635895470438}
   - component: {fileID: 2841937498515951391}
   - component: {fileID: 5187931155959766927}
+  - component: {fileID: 142218030952568795}
+  - component: {fileID: 6351027456516534679}
+  - component: {fileID: 833451910903964548}
   m_Layer: 0
   m_Name: Blob
   m_TagString: Untagged
@@ -519,11 +522,11 @@ MonoBehaviour:
   animator: {fileID: 5251805740929443311}
   rb: {fileID: 5371465527301402818}
   healthSystem: {fileID: 7701724696322323559}
-  patrol: {fileID: 11400000, guid: 66d5abd89dd463047a87100849da6b8e, type: 2}
+  patrol: {fileID: 142218030952568795}
   patrolPlayerDetector: {fileID: 785164900083198711}
-  chase: {fileID: 11400000, guid: 82da7871a54638e4fb3f1418f3b05f44, type: 2}
+  chase: {fileID: 6351027456516534679}
   chasePlayerDetector: {fileID: 5125999849503502630}
-  attack: {fileID: 11400000, guid: deef1f47eca3ba84690ed7aac00d436f, type: 2}
+  attack: {fileID: 833451910903964548}
   attackHitbox: {fileID: 3984274986917808253}
 --- !u!58 &5187931155959766927
 CircleCollider2D:
@@ -560,6 +563,50 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &142218030952568795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604312987955109456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b4d2d39b156bf48b433688a16fa4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: {x: 0, y: 0}
+  end: {x: 0, y: 0}
+  targetSpeed: 2
+  accel: 0.95
+--- !u!114 &6351027456516534679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604312987955109456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ad6d8d84c3d5e40b365c005ebde92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSpeed: 4
+  accel: 0.1
+--- !u!114 &833451910903964548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5604312987955109456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97edb50ae96cb154a9c78c578154bb42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hit:
+    damage: 5
 --- !u!1001 &80530109843462889
 PrefabInstance:
   m_ObjectHideFlags: 0

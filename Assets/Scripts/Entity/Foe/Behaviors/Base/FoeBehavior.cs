@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    internal abstract class FoeBehavior:ScriptableObject
+    internal abstract class FoeBehavior:MonoBehaviour
     {
         internal Action<FoeBase.AIState> SetState;
         internal PlayerDetector playerDetector;
