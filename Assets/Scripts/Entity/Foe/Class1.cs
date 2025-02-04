@@ -22,6 +22,8 @@ namespace Assets.Scripts.Entity.Foe
         [SerializeField] PlayerDetector chasePlayerDetector;
         [SerializeField] AttackBehaviorBase attack;
         [SerializeField] Hitbox attackHitbox;
+
+        public PlayerController Target { get; private set; }
         protected AIState State { get { return state; } set { StateChanged(value); state = value; } }
         AIState state;
 
