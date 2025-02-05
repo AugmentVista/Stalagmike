@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Button to continue game from pause menu.
+/// Disables pause menu when clicked.
+/// </summary>
 public class ContinueButton : MonoBehaviour
 {
     [SerializeField] GameObject PauseMenuUI;

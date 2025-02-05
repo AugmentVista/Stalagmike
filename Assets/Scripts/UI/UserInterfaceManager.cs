@@ -1,9 +1,15 @@
 using UnityEngine;
 using System;
-using UnityEngine.PlayerLoop;
 
+/// <summary>
+/// Handles all high level interaction with UserInterface elements.
+/// Has a static instance for other classes to provide it arguements without needing a direct reference.
+/// Ensures that only 1 UserInterface screen is active at a time.
+/// </summary>
 public class UserInterfaceManager : MonoBehaviour
 {
+    public static UserInterfaceManager instance; // Static instance as there should only be one UserInterfaceManager
+    
     public GameObject emptyUI;
     public GameObject mainMenuUI;
     public GameObject pausedUI;
@@ -11,20 +17,44 @@ public class UserInterfaceManager : MonoBehaviour
     public GameObject optionsUI;
     public GameObject gameOverUI;
     public GameObject gameWinUI;
-
+    
     public enum UserInterfaceState
     {
-    MainMenu,
-    GamePlay,
-    Paused,
-    GameWin,
-    GameLose,
+        MainMenu,
+        GamePlay,
+        Paused,
+        GameWin,
+        GameLose,
     }
+
     public UserInterfaceState uiState;
+
+    private void Awake()
+    {
+        // Ensure that there is only one instance of UserInterfaceManager via singleton pattern
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public static void RequestUIUpdate(string desiredScreenName)
     {
-        Debug.LogWarning(new NotImplementedException("No external sources change UI yet"));
+        // Try to parse the string argument into an enum value, accounting for mistyped character case
+        if (Enum.TryParse(desiredScreenName, true, out UserInterfaceState state))
+        {
+            // Update the UI if the new state matches
+            instance.UpdateUI(state);
+        }
+        else
+        {
+            // If it doesn't match, display the attempted string as a debug message
+            Debug.LogWarning($"The UI state: {desiredScreenName}, doesn't exist");
+        }
     }
 
     void Update()
@@ -34,9 +64,12 @@ public class UserInterfaceManager : MonoBehaviour
             uiState = UserInterfaceState.Paused;
             UpdateUI(uiState);
         }
-
+        else
+        {
+            uiState = UserInterfaceState.GamePlay;
+            UpdateUI(uiState);
+        }
     }
-
 
     public void UpdateUI(UserInterfaceState state)
     {
@@ -91,6 +124,7 @@ public class UserInterfaceManager : MonoBehaviour
     {
         HideAllUI(pausedUI);
     }
+
     public void HideAllUI(GameObject ActiveUI)
     {
         emptyUI.SetActive(false);

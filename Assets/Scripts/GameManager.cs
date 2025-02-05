@@ -1,6 +1,9 @@
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Manages core game functionality
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,10 +15,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputManager.pauseInput)
-        {
-            PauseGame();
-        }
+        PauseGame();
     }
 
     public void GameStart()
@@ -26,13 +26,10 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         // If the game isn't paused, pause it, if the game is paused, unpause it.
-        if (Time.timeScale == 1)
+        if (Input.GetKey(KeyCode.Escape))
         {
-            Time.timeScale = 0;
-        }
-        else if (Time.timeScale == 0)
-        {
-            Time.timeScale = 1;
+            if (InputManager.pauseInput) {Time.timeScale = 0;}
+            else if (!InputManager.pauseInput) {Time.timeScale = 1;}
         }
     }
 }
