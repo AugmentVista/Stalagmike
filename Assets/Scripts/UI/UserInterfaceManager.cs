@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.PlayerLoop;
 
 public class UserInterfaceManager : MonoBehaviour
 {
@@ -25,6 +26,17 @@ public class UserInterfaceManager : MonoBehaviour
     {
         Debug.LogWarning(new NotImplementedException("No external sources change UI yet"));
     }
+
+    void Update()
+    {
+        if (InputManager.pauseInput)
+        {
+            uiState = UserInterfaceState.Paused;
+            UpdateUI(uiState);
+        }
+
+    }
+
 
     public void UpdateUI(UserInterfaceState state)
     {
