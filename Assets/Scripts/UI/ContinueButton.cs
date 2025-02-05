@@ -8,23 +8,13 @@ public class ContinueButton : MonoBehaviour
 {
     [SerializeField] GameObject PauseMenuUI;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnClick()
     {
-         if (PauseMenuUI.activeSelf)
+        if (PauseMenuUI.activeSelf)
         {
             PauseMenuUI.SetActive(false);
+            if (Time.timeScale != 1) {Time.timeScale = 1;}
+            UserInterfaceManager. RequestUIUpdate("GamePlay");
         }
     }
 }

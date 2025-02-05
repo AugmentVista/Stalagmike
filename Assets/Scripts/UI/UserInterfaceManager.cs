@@ -4,7 +4,7 @@ using System;
 /// <summary>
 /// Handles all high level interaction with UserInterface elements.
 /// Has a static instance for other classes to provide it arguements without needing a direct reference.
-/// Ensures that only 1 UserInterface screen is active at a time.
+/// Ensures that only one UserInterface screen is active at a time.
 /// </summary>
 public class UserInterfaceManager : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class UserInterfaceManager : MonoBehaviour
 
     private void Awake()
     {
-        // Ensure that there is only one instance of UserInterfaceManager via singleton pattern
+        // Singleton logic for UserInterfaceManager instance
         if (instance == null)
         {
             instance = this;
@@ -44,7 +44,7 @@ public class UserInterfaceManager : MonoBehaviour
 
     public static void RequestUIUpdate(string desiredScreenName)
     {
-        // Try to parse the string argument into an enum value, accounting for mistyped character case
+        // Try to parse the string argument into an enum value, upper/lower case doesn't matter
         if (Enum.TryParse(desiredScreenName, true, out UserInterfaceState state))
         {
             // Update the UI if the new state matches
@@ -54,20 +54,6 @@ public class UserInterfaceManager : MonoBehaviour
         {
             // If it doesn't match, display the attempted string as a debug message
             Debug.LogWarning($"The UI state: {desiredScreenName}, doesn't exist");
-        }
-    }
-
-    void Update()
-    {
-        if (InputManager.pauseInput)
-        {
-            uiState = UserInterfaceState.Paused;
-            UpdateUI(uiState);
-        }
-        else
-        {
-            uiState = UserInterfaceState.GamePlay;
-            UpdateUI(uiState);
         }
     }
 

@@ -6,16 +6,11 @@ using System;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        PauseGame();
+        if (Input.GetKey(KeyCode.Escape)) {PauseGame();}
+        
     }
 
     public void GameStart()
@@ -23,13 +18,20 @@ public class GameManager : MonoBehaviour
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// If the game isn't paused, pause it, if the game is paused, unpause it.
+    /// </summary>
     public void PauseGame()
     {
-        // If the game isn't paused, pause it, if the game is paused, unpause it.
-        if (Input.GetKey(KeyCode.Escape))
+        if (InputManager.pauseInput) 
         {
-            if (InputManager.pauseInput) {Time.timeScale = 0;}
-            else if (!InputManager.pauseInput) {Time.timeScale = 1;}
+            UserInterfaceManager. RequestUIUpdate("Paused");
+            Time.timeScale = 0;
+        }
+        else if (!InputManager.pauseInput) 
+        {
+            UserInterfaceManager. RequestUIUpdate("Game");
+            Time.timeScale = 1;
         }
     }
 }
