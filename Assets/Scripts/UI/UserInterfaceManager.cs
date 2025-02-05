@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Handles all high level interaction with UserInterface elements.
@@ -20,9 +21,11 @@ public class UserInterfaceManager : MonoBehaviour
     
     public enum UserInterfaceState
     {
+        EmptyUI,
         MainMenu,
-        GamePlay,
         Paused,
+        GamePlay,
+        Options,
         GameWin,
         GameLose,
     }
@@ -40,6 +43,12 @@ public class UserInterfaceManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        uiState = UserInterfaceState.MainMenu;
+        UpdateUI(uiState);
     }
 
     public static void RequestUIUpdate(string desiredScreenName)
