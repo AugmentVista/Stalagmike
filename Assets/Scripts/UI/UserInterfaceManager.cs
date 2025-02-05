@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class UserInterfaceManager : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class UserInterfaceManager : MonoBehaviour
     Paused,
     GameWin,
     GameLose,
+    }
+    public UserInterfaceState uiState;
+
+    public static void RequestUIUpdate(string desiredScreenName)
+    {
+        Debug.LogWarning(new NotImplementedException("No external sources change UI yet"));
     }
 
     public void UpdateUI(UserInterfaceState state)
