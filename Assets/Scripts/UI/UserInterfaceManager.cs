@@ -1,8 +1,16 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
+/// <summary>
+/// Handles all high level interaction with UserInterface elements.
+/// Has a static instance for other classes to provide it arguements without needing a direct reference.
+/// Ensures that only one UserInterface screen is active at a time.
+/// </summary>
 public class UserInterfaceManager : MonoBehaviour
 {
+    public static UserInterfaceManager instance; // Static instance as there should only be one UserInterfaceManager
+    
     public GameObject emptyUI;
     public GameObject mainMenuUI;
     public GameObject pausedUI;
@@ -10,20 +18,52 @@ public class UserInterfaceManager : MonoBehaviour
     public GameObject optionsUI;
     public GameObject gameOverUI;
     public GameObject gameWinUI;
-
+    
     public enum UserInterfaceState
     {
-    MainMenu,
-    GamePlay,
-    Paused,
-    GameWin,
-    GameLose,
+        EmptyUI,
+        MainMenu,
+        Paused,
+        GamePlay,
+        Options,
+        GameWin,
+        GameLose,
     }
+
     public UserInterfaceState uiState;
+
+    private void Awake()
+    {
+        // Singleton logic for UserInterfaceManager instance
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        uiState = UserInterfaceState.MainMenu;
+        UpdateUI(uiState);
+    }
 
     public static void RequestUIUpdate(string desiredScreenName)
     {
-        Debug.LogWarning(new NotImplementedException("No external sources change UI yet"));
+        // Try to parse the string argument into an enum value, upper/lower case doesn't matter
+        if (Enum.TryParse(desiredScreenName, true, out UserInterfaceState state))
+        {
+            // Update the UI if the new state matches
+            instance.UpdateUI(state);
+        }
+        else
+        {
+            // If it doesn't match, display the attempted string as a debug message
+            Debug.LogWarning($"The UI state: {desiredScreenName}, doesn't exist");
+        }
     }
 
     public void UpdateUI(UserInterfaceState state)
@@ -79,6 +119,7 @@ public class UserInterfaceManager : MonoBehaviour
     {
         HideAllUI(pausedUI);
     }
+
     public void HideAllUI(GameObject ActiveUI)
     {
         emptyUI.SetActive(false);
