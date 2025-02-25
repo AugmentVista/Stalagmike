@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using Unity.VisualScripting;
 
 /// <summary>
 /// Handles all high level interaction with UserInterface elements.
@@ -9,8 +8,6 @@ using Unity.VisualScripting;
 /// </summary>
 public class UserInterfaceManager : MonoBehaviour
 {
-    public static UserInterfaceManager instance; // Static instance as there should only be one UserInterfaceManager
-    
     public GameObject emptyUI;
     public GameObject mainMenuUI;
     public GameObject pausedUI;
@@ -32,32 +29,32 @@ public class UserInterfaceManager : MonoBehaviour
 
     public UserInterfaceState uiState;
 
-    private void Awake()
-    {
-        // Singleton logic for UserInterfaceManager instance
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    // private void Awake()
+    // {
+    //     // Singleton logic for UserInterfaceManager instance
+    //     if (instance == null)
+    //     {
+    //         instance = this;
+    //     }
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     void Start()
     {
-        uiState = UserInterfaceState.MainMenu;
-        UpdateUI(uiState);
+        RequestUIUpdate("MainMenu");
     }
 
-    public static void RequestUIUpdate(string desiredScreenName)
+    public void RequestUIUpdate(string desiredScreenName)
     {
+        Debug.LogWarning($"Attempting to change UI state from {uiState} to {desiredScreenName}");
         // Try to parse the string argument into an enum value, upper/lower case doesn't matter
         if (Enum.TryParse(desiredScreenName, true, out UserInterfaceState state))
         {
             // Update the UI if the new state matches
-            instance.UpdateUI(state);
+           UpdateUI(state);
         }
         else
         {

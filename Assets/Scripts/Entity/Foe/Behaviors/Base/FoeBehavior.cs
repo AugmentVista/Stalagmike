@@ -15,7 +15,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         /// <param name="parent">What thing is executing this code? This probably can be replaced.</param>
         internal virtual void Execute(FoeBase parent)
         {
-            Debug.LogWarning(new NotImplementedException("FoeBehavior.Execute() should be overridden."));
+            //Debug.LogWarning(new NotImplementedException("FoeBehavior.Execute() should be overridden."));
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         /// </summary>
         internal virtual void Init()
         {
-            Debug.Log("This should probably be overridden.");
+            //Debug.Log("This should probably be overridden.");
 
             playerDetector.PlayerDetected += OnPlayerDetected;
             playerDetector.PlayerLost += OnPlayerLost;
