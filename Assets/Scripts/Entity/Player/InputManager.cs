@@ -15,7 +15,7 @@ internal static class InputManager
     public static bool jumpInput { get { return Input.GetKey(KeyCode.Space); } }
     public static bool standardAttackInput { get { return Input.GetMouseButton(0); } }
     public static bool specialAttackInput { get { return Input.GetMouseButton(1); } }
-    public static bool pauseInput { get { return Input.GetKey(KeyCode.Escape); } }
+    public static bool pauseInput { get { return Input.GetKeyDown(KeyCode.Escape); } }
 
     private static float ReadMoveInput()
     {

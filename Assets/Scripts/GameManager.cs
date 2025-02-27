@@ -6,31 +6,70 @@ using System;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
+    public bool isPaused = false;
+    [SerializeField]  UserInterfaceManager UiManager;
+
+    void Start()
+    {
+        UiManager.RequestUIUpdate("MainMenu");
+        FreezeTime();
+    }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape)) {PauseGame();}
-        
+        PauseGame();
     }
 
-    public void GameStart()
+    /// <summary>
+    /// Play button in main menu calls this method to change state to gameplay and unfreezes time
+    /// </summary>
+    public void MainMenuPlayGame()
     {
-        throw new NotImplementedException();
+        if (UiManager.uiState == UserInterfaceManager.UserInterfaceState.MainMenu)
+        {
+            UiManager.RequestUIUpdate("GamePlay");
+            UnfreezeTime();
+        }
+    }
+    /// <summary>
+    /// Continue button in pause menu calls this method to change state to gameplay and unfreeze time
+    /// </summary>
+    public void PauseMenuPlayGame()
+    {
+        if (UiManager.uiState == UserInterfaceManager.UserInterfaceState.MainMenu)
+        {
+            UiManager.RequestUIUpdate("GamePlay");
+            UnfreezeTime();
+        }
     }
 
     /// <summary>
     /// If the game isn't paused, pause it, if the game is paused, unpause it.
-    /// </summary>
+    /// If the game UI state is MainMenu, the game pauses, when it isn't Main Menu
+    /// the game resumes.
+    /// </summary> 
     public void PauseGame()
     {
-        if (InputManager.pauseInput) 
+
+        if (InputManager.pauseInput && !isPaused)  
         {
-            UserInterfaceManager. RequestUIUpdate("Paused");
-            Time.timeScale = 0;
+            UiManager.RequestUIUpdate("Paused");
+            FreezeTime();
         }
-        else if (!InputManager.pauseInput) 
+        else if (InputManager.pauseInput && isPaused) 
         {
-            UserInterfaceManager. RequestUIUpdate("Game");
-            Time.timeScale = 1;
+            UiManager.RequestUIUpdate("GamePlay");
+            UnfreezeTime();
         }
+    }
+
+
+
+    public void UnfreezeTime()
+    {
+         if (Time.timeScale != 1) {Time.timeScale = 1; isPaused = false;}
+    }
+    public void FreezeTime()
+    {
+        if (Time.timeScale != 0) {Time.timeScale = 0; isPaused = true;}
     }
 }
