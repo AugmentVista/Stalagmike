@@ -6,16 +6,13 @@ using System;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    public static bool isPaused = false;
+    public bool isPaused = false;
     [SerializeField]  UserInterfaceManager UiManager;
 
     void Start()
     {
-        if (UiManager.uiState == UserInterfaceManager.UserInterfaceState.MainMenu)
-        {
-            UiManager.RequestUIUpdate("MainMenu");
-            FreezeTime(); 
-        }
+        UiManager.RequestUIUpdate("MainMenu");
+        FreezeTime();
     }
     void Update()
     {
@@ -27,7 +24,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void MainMenuPlayGame()
     {
-        if (UiManager.uiState != UserInterfaceManager.UserInterfaceState.MainMenu)
+        if (UiManager.uiState == UserInterfaceManager.UserInterfaceState.MainMenu)
         {
             UiManager.RequestUIUpdate("GamePlay");
             UnfreezeTime();

@@ -42,11 +42,6 @@ public class UserInterfaceManager : MonoBehaviour
     //     }
     // }
 
-    void Start()
-    {
-        RequestUIUpdate("MainMenu");
-    }
-
     public void RequestUIUpdate(string desiredScreenName)
     {
         Debug.LogWarning($"Attempting to change UI state from {uiState} to {desiredScreenName}");
