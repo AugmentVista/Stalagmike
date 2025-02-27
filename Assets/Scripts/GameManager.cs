@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 /// <summary>
 /// Manages core game functionality
@@ -63,11 +62,17 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Sets timescale to 1 if it isn't 1
+    /// </summary>
     public void UnfreezeTime()
     {
          if (Time.timeScale != 1) {Time.timeScale = 1; isPaused = false;}
     }
+
+    /// <summary>
+    /// Sets timescale to 0 if it isn't 0
+    /// </summary>
     public void FreezeTime()
     {
         if (Time.timeScale != 0) {Time.timeScale = 0; isPaused = true;}

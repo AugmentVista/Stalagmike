@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KillBox : MonoBehaviour
@@ -15,7 +13,4 @@ public class KillBox : MonoBehaviour
             Player.transform.position = RespawnPoint.position;
         }
     }
-
-
-
 }
