@@ -461,6 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMe: 1
   maxHp: 1
+  OnHitFeedback: {fileID: 2487512717988778431, guid: b184de26655130d4e86234469e0ba329, type: 3}
 --- !u!61 &6522701635895470438
 BoxCollider2D:
   m_ObjectHideFlags: 0
