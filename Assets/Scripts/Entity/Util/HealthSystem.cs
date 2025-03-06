@@ -15,6 +15,7 @@ namespace Assets.Scripts
         /// Called when reaching 0 hp.
         /// </summary>
         public Action OnDeath;
+        public GameObject OnHitFeedback;
         public int health { get; protected set; } = 0;
 
         private void Start()
@@ -33,6 +34,7 @@ namespace Assets.Scripts
         {
             health -= hit.damage;
 
+            if (OnHitFeedback!=null) { Instantiate(OnHitFeedback, transform).transform.parent = null; }
             if (health <= 0) { OnDeath(); }
         }
     }

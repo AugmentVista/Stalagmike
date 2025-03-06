@@ -76,7 +76,7 @@ internal class AbilityController : MonoBehaviour
             activeTicksLeft--;
             if (activeTicksLeft <= 0)
             {
-                meleeAttack.SetActive(false) ;
+                // meleeAttack.SetActive(false) ;
                 PhysicsProcess -= AtkProcess;
             }
         }
