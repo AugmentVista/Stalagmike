@@ -34,8 +34,8 @@ namespace Assets.Scripts
         {
             health -= hit.damage;
 
+            if (OnHitFeedback!=null) { Instantiate(OnHitFeedback, transform); }
             if (health <= 0) { OnDeath(); }
-            if (OnHitFeedback!=null) { Instantiate(OnHitFeedback); }
         }
     }
 }
