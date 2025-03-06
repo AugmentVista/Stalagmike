@@ -1,12 +1,22 @@
 ﻿using Assets.Scripts.Entity.Util;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    internal class AttackBehaviorBase:FoeBehavior
+    internal class AttackBehaviorBase : FoeBehavior
     {
+        #region stats
+        /// <summary>
+        /// How long should the attack take to charge. This should in some way relate to the telegraph animation.
+        /// </summary>
+        [SerializeField] int windupTicks = 20;
+        /// <summary>
+        /// How long should the attack take before its usable again?
+        /// </summary>
+        [SerializeField] int cooldownTicks = 50;
         [SerializeField] protected HitInfo hit;
+        #endregion
+
         internal Hitbox hitbox;
 
         internal override void Execute(FoeBase parent)
