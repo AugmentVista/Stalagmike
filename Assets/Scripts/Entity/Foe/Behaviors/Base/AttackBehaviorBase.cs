@@ -29,7 +29,19 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
 
         internal override void Execute(FoeBase parent)
         {
+            if (!foesThisIsActiveFor.Contains(parent))
+            {
+                // The time since last activation in ticks.
+                int timer = 0;
 
+                // Define a method that we'll use to hook into the foe's physicsprocess to time things.
+                void AttackTickingInternal()
+                {
+
+                }
+                parent.PhysicsProcess += AttackTickingInternal;
+                foesThisIsActiveFor.Add(parent);
+            }
         }
 
         internal override void Init()
