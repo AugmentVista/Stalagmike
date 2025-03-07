@@ -25,13 +25,16 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         [SerializeField] string animationStateName = "Attack";
 
         // The time since last activation in ticks.
-        protected int timer = 0;
+        protected int timer = -1;
 
         internal override void Execute(FoeBase parent)
         {
-            // if cooldown is over, proceed.
-            if (timer >= cooldownTicks)
+            // if cooldown is over, or timer is invalid (-1) proceed.
+            if (timer >= cooldownTicks||timer == -1)
             {
+                // Reset the timer.
+                timer = 0;
+
                 // If we have an animator, try to play the attack animation.
                 if (TryGetComponent(out Animator animator))
                 {
@@ -45,11 +48,12 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
                     //{
                     AttackTick(parent);
 
-                    // End with a cooldown check.
+                    // End with a cooldown check and timer increment.
                     if (timer == cooldownTicks)
                     {
                         parent.PhysicsProcess -= AttackTickingInternal;
                     }
+                    timer++;
                     //}
                     //catch (Exception e) { Debug.LogError(e); }
 
