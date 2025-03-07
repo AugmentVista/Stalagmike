@@ -20,21 +20,16 @@ public class PlayerUIManager : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.T))
-        //{
-        //    healthSystem.TakeDamage(new HitInfo(1));
-
-            if (healthSystem.isActiveAndEnabled && healthSystem.health <= healthSystem.maxHp)
+        if (healthSystem.isActiveAndEnabled && healthSystem.health <= healthSystem.maxHp)
+        {
+            foreach (GameObject heart in hearts)
             {
-                foreach (GameObject heart in hearts)
-                {
-                    heart.SetActive(false);
-                }
-                for (int i = 0; i < healthSystem.health; i++)
-                {
-                    hearts[i].SetActive(true);
-                }
+                heart.SetActive(false);
+            }
+            for (int i = 0; i < healthSystem.health; i++)
+            {
+                hearts[i].SetActive(true);
             }
         }
-    //}
+    }
 }
