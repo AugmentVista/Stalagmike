@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hit:
-    damage: 5
+    damage: 1
 --- !u!1001 &80530109843462889
 PrefabInstance:
   m_ObjectHideFlags: 0

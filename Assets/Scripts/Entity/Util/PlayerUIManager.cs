@@ -20,9 +20,9 @@ public class PlayerUIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            healthSystem.TakeDamage(new HitInfo(1));
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    healthSystem.TakeDamage(new HitInfo(1));
 
             if (healthSystem.isActiveAndEnabled && healthSystem.health <= healthSystem.maxHp)
             {
@@ -36,8 +36,5 @@ public class PlayerUIManager : MonoBehaviour
                 }
             }
         }
-
-        
-    }
-
+    //}
 }
