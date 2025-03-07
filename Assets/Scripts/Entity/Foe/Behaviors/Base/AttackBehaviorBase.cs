@@ -29,10 +29,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
 
         internal override void Execute(FoeBase parent)
         {
-            // Keep the warning here.
-            base.Execute(parent);
 
-            hitbox.enabled = true; // TODO: Currently this produces an infinite duration bug. Pls fix later.
         }
 
         internal override void Init()
