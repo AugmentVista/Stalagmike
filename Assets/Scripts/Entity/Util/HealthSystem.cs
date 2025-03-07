@@ -10,7 +10,7 @@ namespace Assets.Scripts
         /// If disabled, we wont spam the logs when OnDeath is called.
         /// </summary>
         [SerializeField] bool debugMe = true;
-        [SerializeField] int maxHp = 1;
+        [SerializeField]public int maxHp = 1;
         /// <summary>
         /// Called when reaching 0 hp.
         /// </summary>
@@ -21,6 +21,7 @@ namespace Assets.Scripts
         private void Start()
         {
             health = maxHp;
+            Debug.Log($"HealthSystem displays {health}");
 
             // Add a lambda to improve debugging, and prevent errors when calling this without anything assigned.
             OnDeath += delegate { if (debugMe) { Debug.Log($"{name} was killed."); health = maxHp; } };
