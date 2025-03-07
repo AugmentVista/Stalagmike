@@ -12,7 +12,7 @@ namespace Assets.Scripts.Entity.Foe
         [SerializeField] protected Animator animator;
         [SerializeField] protected Rigidbody2D rb;
         [SerializeField] protected HealthSystem healthSystem;
-        protected Action PhysicsProcess;
+        public Action PhysicsProcess;
         protected Action<AIState> StateChanged;
 
         // Behaviors
@@ -66,8 +66,8 @@ namespace Assets.Scripts.Entity.Foe
         {
             switch (State)
             {
-                case AIState.Patrol: patrol.Execute(this); break;
-                case AIState.Chase: chase.Execute(this); break;
+                case AIState.Patrol: patrol.Execute(); break;
+                case AIState.Chase: chase.Execute(); break;
             }
         }
 

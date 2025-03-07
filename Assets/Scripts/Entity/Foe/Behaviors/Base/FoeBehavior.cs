@@ -3,17 +3,19 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    internal abstract class FoeBehavior:MonoBehaviour
+    internal abstract class FoeBehavior : MonoBehaviour
     {
         internal Action<FoeBase.AIState> SetState;
         internal PlayerDetector playerDetector;
         protected PlayerController player;
+        [SerializeField] FoeBase parent;
+        protected FoeBase Parent { get => parent; set { parent = value; } }
 
         /// <summary>
         /// Run the behavior's main action.
         /// </summary>
         /// <param name="parent">What thing is executing this code? This probably can be replaced.</param>
-        internal virtual void Execute(FoeBase parent)
+        internal virtual void Execute()
         {
             //Debug.LogWarning(new NotImplementedException("FoeBehavior.Execute() should be overridden."));
         }
@@ -24,6 +26,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         internal virtual void Init()
         {
             //Debug.Log("This should probably be overridden.");
+            if (Parent == null) { Debug.LogError("Parent was null."); }
 
             playerDetector.PlayerDetected += OnPlayerDetected;
             playerDetector.PlayerLost += OnPlayerLost;

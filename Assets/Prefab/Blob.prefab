@@ -576,6 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b4d2d39b156bf48b433688a16fa4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 2841937498515951391}
   start: {x: 0, y: 0}
   end: {x: 0, y: 0}
   targetSpeed: 2
@@ -592,6 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ad6d8d84c3d5e40b365c005ebde92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 2841937498515951391}
   targetSpeed: 4
   accel: 0.1
 --- !u!114 &833451910903964548
@@ -606,8 +608,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97edb50ae96cb154a9c78c578154bb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 2841937498515951391}
+  startupTime: 20
+  retractionTime: 25
+  cooldownTicks: 50
   hit:
     damage: 1
+  animationStateName: Attack
 --- !u!1001 &80530109843462889
 PrefabInstance:
   m_ObjectHideFlags: 0
