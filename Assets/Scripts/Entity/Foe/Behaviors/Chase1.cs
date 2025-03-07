@@ -5,7 +5,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
     [CreateAssetMenu(menuName = "FoeBehaviors/Chase1")]
     internal class Chase1 : ChaseBehaviorBase
     {
-        internal override void Execute(FoeBase parent)
+        internal override void Execute()
         {
             string name = parent.name;
             // get ref
@@ -20,7 +20,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
 
         protected override void OnPlayerDetected(PlayerController player)
         {
-            Attack(null); // THIS IS BAD, FIX SOON!
+            Attack();
         }
     }
 }

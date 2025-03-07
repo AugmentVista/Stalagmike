@@ -27,7 +27,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         // The time since last activation in ticks.
         protected int timer = -1;
 
-        internal override void Execute(FoeBase parent)
+        internal override void Execute()
         {
             // if cooldown is over, or timer is invalid (-1) proceed.
             if (timer >= cooldownTicks||timer == -1)
@@ -46,7 +46,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
                 {
                     //try
                     //{
-                    AttackTick(parent);
+                    AttackTick();
 
                     // End with a cooldown check and timer increment.
                     if (timer == cooldownTicks)
@@ -62,7 +62,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
             }
         }
 
-        protected virtual void AttackTick(FoeBase parent)
+        protected virtual void AttackTick()
         {
             // These cannot be a switch case due to requiring runtime constants.
             if (timer == startupTime) { hitbox.enabled = true; Debug.Log($"Enabled hitbox for {name}'s attack."); }
