@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,18 +9,25 @@ public class CheckPointTrigger : MonoBehaviour
 
     [SerializeField] private GameObject targetRespawnPoint;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (!targetRespawnPoint.activeSelf) { targetRespawnPoint.SetActive(true); }
+    public Transform newRespawnPoint;
 
-            foreach (GameObject respawnPoint in respawnPoints)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameObject player = collision.gameObject;
+            // Get a reference to the player gameObject
+
+            if (!targetRespawnPoint.activeSelf) { targetRespawnPoint.SetActive(true); }
+            // Ensure the respawn point we want is active
+
+            newRespawnPoint = targetRespawnPoint.transform;
+            // Assign a value to newRespawnPoint to our target respawnPoint
+
+            if (player.TryGetComponent(out PlayerController playerController))
             {
-                if (respawnPoint != targetRespawnPoint)
-                {
-                    respawnPoint.SetActive(false);
-                }
+                // Tell the playerController to use the new value for its respawn location
+                playerController.RespawnPoint = newRespawnPoint.transform;
             }
         }
     }

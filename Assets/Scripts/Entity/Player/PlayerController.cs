@@ -12,7 +12,7 @@ class PlayerController : MonoBehaviour
     Action PhysicsProcess = delegate { };
 
     [Header("Spawning and Checkpoints")]
-    [SerializeField] Transform RespawnPoint; // This needs some logic for setting the spawn point.
+    public Transform RespawnPoint; // This needs some logic for setting the spawn point.
 
     [Header("Movement Stats")]
     [SerializeField] float moveSpeed = 3;
