@@ -61,8 +61,8 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         protected virtual void AttackTick(FoeBase parent)
         {
             // These cannot be a switch case due to requiring runtime constants.
-            if (timer == startupTime) { hitbox.enabled = true; }
-            if (timer == retractionTime) { hitbox.enabled = false; }
+            if (timer == startupTime) { hitbox.enabled = true; Debug.Log($"Enabled hitbox for {name}'s attack."); }
+            if (timer == retractionTime) { hitbox.enabled = false; Debug.Log($"Disabled hitbox for {name}'s attack."); }
         }
 
         internal override void Init()
