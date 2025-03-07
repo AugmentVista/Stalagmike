@@ -1,16 +1,13 @@
+using Assets.Scripts;
 using UnityEngine;
 
 public class KillBox : MonoBehaviour
 {
-    [SerializeField] private GameObject Player;
-    [SerializeField] private Transform RespawnPoint;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.TryGetComponent(out HealthSystem hs))
         {
-            Player = collision.gameObject;
-
-            Player.transform.position = RespawnPoint.position;
+            hs.TakeDamage(int.MaxValue);
         }
     }
 }

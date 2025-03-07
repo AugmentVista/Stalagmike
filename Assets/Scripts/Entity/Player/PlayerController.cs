@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     AbilityController abilityController;
     Action PhysicsProcess = delegate { };
+
+    [Header("Spawning and Checkpoints")]
+    [SerializeField] Transform RespawnPoint; // This needs some logic for setting the spawn point.
 
     [Header("Movement Stats")]
     [SerializeField] float moveSpeed = 3;
@@ -28,6 +32,11 @@ class PlayerController : MonoBehaviour
     {
         // Event stuff.
         groundDetector.Landed += () => { grounded = true; };
+
+        if(TryGetComponent(out HealthSystem healthSystem))
+        {
+            healthSystem.OnDeath += delegate { transform.position = RespawnPoint.position; };
+        }
     }
 
     private void OnEnable()

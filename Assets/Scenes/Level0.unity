@@ -642,8 +642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa8078cd02183242a097cfc99b31448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  RespawnPoint: {fileID: 1789753261}
 --- !u!61 &157043397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1937,6 +1935,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6943452522051643604, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
+      propertyPath: RespawnPoint
+      value: 
+      objectReference: {fileID: 1789753261}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
