@@ -51,14 +51,14 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
                     // End with a cooldown check and timer increment.
                     if (timer == cooldownTicks)
                     {
-                        parent.PhysicsProcess -= AttackTickingInternal;
+                        Parent.PhysicsProcess -= AttackTickingInternal;
                     }
                     timer++;
                     //}
                     //catch (Exception e) { Debug.LogError(e); }
 
                 }
-                parent.PhysicsProcess += AttackTickingInternal;
+                Parent.PhysicsProcess += AttackTickingInternal;
             }
         }
 

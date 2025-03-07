@@ -8,8 +8,8 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         internal Action<FoeBase.AIState> SetState;
         internal PlayerDetector playerDetector;
         protected PlayerController player;
-        [SerializeField] FoeBase _parent;
-        protected FoeBase parent { get => _parent; set { _parent = value; } }
+        [SerializeField] FoeBase parent;
+        protected FoeBase Parent { get => parent; set { parent = value; } }
 
         /// <summary>
         /// Run the behavior's main action.
@@ -26,7 +26,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         internal virtual void Init()
         {
             //Debug.Log("This should probably be overridden.");
-            if (parent == null) { Debug.LogError("Parent was null."); }
+            if (Parent == null) { Debug.LogError("Parent was null."); }
 
             playerDetector.PlayerDetected += OnPlayerDetected;
             playerDetector.PlayerLost += OnPlayerLost;

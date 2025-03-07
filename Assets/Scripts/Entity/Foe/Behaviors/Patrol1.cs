@@ -8,7 +8,7 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         internal override void Execute()
         {
             // get ref
-            Rigidbody2D rb = parent.GetComponent<Rigidbody2D>();
+            Rigidbody2D rb = Parent.GetComponent<Rigidbody2D>();
             // calculate target horizontal direction as a float. (we really only care about its sign.)
             float hPos = rb.position.x;
             float targetDirection = isForward ? start.x - hPos : end.x - hPos;
