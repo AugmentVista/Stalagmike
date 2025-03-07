@@ -37,7 +37,20 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
                 // Define a method that we'll use to hook into the foe's physicsprocess to time things.
                 void AttackTickingInternal()
                 {
+                    try
+                    {
+                        // These cannot be a switch case due to requiring runtime constants.
+                        if (timer == startupTime) { hitbox.enabled = true; }
+                        if (timer == retractionTime) { hitbox.enabled = false; }
 
+                        // End with a cooldown check.
+                        if (timer == cooldownTicks)
+                        {
+                            parent.PhysicsProcess -= AttackTickingInternal;
+                            foesThisIsActiveFor.Remove(parent);
+                        }
+                    }
+                    catch (Exception e) { Debug.LogError(e); }
                 }
                 parent.PhysicsProcess += AttackTickingInternal;
                 foesThisIsActiveFor.Add(parent);
