@@ -22,6 +22,8 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         #endregion
 
         internal Hitbox hitbox;
+        [SerializeField] string animationStateName = "Attack";
+
         /// <summary>
         /// Used in conjunction with a tick based timer to track cooldowns.
         /// </summary>
@@ -31,6 +33,12 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         {
             if (!foesThisIsActiveFor.Contains(parent))
             {
+                // If we have an animator, try to play the attack animation.
+                if (TryGetComponent(out Animator animator))
+                {
+                    animator.Play(animationStateName);
+                }
+
                 // The time since last activation in ticks.
                 int timer = 0;
 
