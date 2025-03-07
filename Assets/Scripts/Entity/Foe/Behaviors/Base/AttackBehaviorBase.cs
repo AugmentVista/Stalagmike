@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.Entity.Util;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
@@ -26,14 +24,13 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         internal Hitbox hitbox;
         [SerializeField] string animationStateName = "Attack";
 
-        /// <summary>
-        /// Used in conjunction with a tick based timer to track cooldowns.
-        /// </summary>
-        protected List<FoeBase> foesThisIsActiveFor = new();
+        // The time since last activation in ticks.
+        protected int timer = 0;
 
         internal override void Execute(FoeBase parent)
         {
-            if (!foesThisIsActiveFor.Contains(parent))
+            // if cooldown is over, proceed.
+            if (timer >= cooldownTicks)
             {
                 // If we have an animator, try to play the attack animation.
                 if (TryGetComponent(out Animator animator))
@@ -41,30 +38,31 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
                     animator.Play(animationStateName);
                 }
 
-                // The time since last activation in ticks.
-                int timer = 0;
-
                 // Define a method that we'll use to hook into the foe's physicsprocess to time things.
                 void AttackTickingInternal()
                 {
-                    try
-                    {
-                        // These cannot be a switch case due to requiring runtime constants.
-                        if (timer == startupTime) { hitbox.enabled = true; }
-                        if (timer == retractionTime) { hitbox.enabled = false; }
+                    //try
+                    //{
+                    AttackTick(parent);
 
-                        // End with a cooldown check.
-                        if (timer == cooldownTicks)
-                        {
-                            parent.PhysicsProcess -= AttackTickingInternal;
-                            foesThisIsActiveFor.Remove(parent);
-                        }
+                    // End with a cooldown check.
+                    if (timer == cooldownTicks)
+                    {
+                        parent.PhysicsProcess -= AttackTickingInternal;
                     }
-                    catch (Exception e) { Debug.LogError(e); }
+                    //}
+                    //catch (Exception e) { Debug.LogError(e); }
+
                 }
                 parent.PhysicsProcess += AttackTickingInternal;
-                foesThisIsActiveFor.Add(parent);
             }
+        }
+
+        protected virtual void AttackTick(FoeBase parent)
+        {
+            // These cannot be a switch case due to requiring runtime constants.
+            if (timer == startupTime) { hitbox.enabled = true; }
+            if (timer == retractionTime) { hitbox.enabled = false; }
         }
 
         internal override void Init()
