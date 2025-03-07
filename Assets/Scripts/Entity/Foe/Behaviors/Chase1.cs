@@ -2,7 +2,6 @@
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    [CreateAssetMenu(menuName = "FoeBehaviors/Chase1")]
     internal class Chase1 : ChaseBehaviorBase
     {
         internal override void Execute()

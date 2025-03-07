@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    [CreateAssetMenu(menuName = "FoeBehaviors/Attack1")]
     internal class Attack1:AttackBehaviorBase
     {
     }

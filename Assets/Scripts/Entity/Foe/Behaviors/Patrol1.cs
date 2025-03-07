@@ -2,7 +2,6 @@
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
 {
-    [CreateAssetMenu(menuName = "FoeBehaviors/Patrol1")]
     internal class Patrol1 : PatrolBehaviorBase
     {
         internal override void Execute()
