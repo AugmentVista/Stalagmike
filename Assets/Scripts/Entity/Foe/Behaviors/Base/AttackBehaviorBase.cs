@@ -9,15 +9,23 @@ namespace Assets.Scripts.Entity.Foe.Behaviors
         /// <summary>
         /// How long should the attack take to charge. This should in some way relate to the telegraph animation.
         /// </summary>
-        [SerializeField] int windupTicks = 20;
+        [SerializeField] protected int startupTime = 20;
+        /// <summary>
+        /// When should our hitbox retract?
+        /// </summary>
+        [SerializeField] protected int retractionTime = 25;
         /// <summary>
         /// How long should the attack take before its usable again?
         /// </summary>
-        [SerializeField] int cooldownTicks = 50;
+        [SerializeField] protected int cooldownTicks = 50;
         [SerializeField] protected HitInfo hit;
         #endregion
 
         internal Hitbox hitbox;
+        /// <summary>
+        /// Used in conjunction with a tick based timer to track cooldowns.
+        /// </summary>
+        protected List<FoeBase> foesThisIsActiveFor = new();
 
         internal override void Execute(FoeBase parent)
         {
