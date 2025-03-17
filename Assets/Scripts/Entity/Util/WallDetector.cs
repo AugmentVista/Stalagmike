@@ -13,9 +13,12 @@ namespace Assets.Scripts.Entity.Util
     /// </summary>
     internal class WallDetector:InteractorBase
     {
+        public Vector2 WallOffset;
         public bool Colliding = false;
+
         private void OnTriggerStay2D(Collider2D collision)
         {
+            WallOffset = (Vector2)transform.position - collision.ClosestPoint(transform.position);
             if(!(Colliding||collision.TryGetComponent(out InteractorBase ignored)))
             {
                 Colliding = true;
