@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using Assets.Scripts.Entity.Util;
 using System;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ class PlayerController : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] GroundDetector groundDetector;
+    [SerializeField] WallDetector wallDetector;
     Rigidbody2D rb;
     AbilityController abilityController;
     Action PhysicsProcess = delegate { };

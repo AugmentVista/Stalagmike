@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Entity.Util;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Entity.Foe.Behaviors
