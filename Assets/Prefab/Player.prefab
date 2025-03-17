@@ -115,6 +115,7 @@ Transform:
   - {fileID: 3367003744529753362}
   - {fileID: 2396852758885167565}
   - {fileID: 2960186981017959673}
+  - {fileID: 2459032554230926133}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2323810736820892408
@@ -209,6 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDetector: {fileID: 282553643132553166}
+  wallDetector: {fileID: 7423601730371941514}
+  RespawnPoint: {fileID: 0}
   moveSpeed: 4
   jumpTicks: 7
   jumpForce: 1
@@ -284,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMe: 1
   maxHp: 5
+  OnHitFeedback: {fileID: 0}
 --- !u!114 &9177113967258667871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1510,3 +1514,76 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8722680193274948687, guid: 712acff4fb0cb3044854153e60e5d7a2, type: 3}
   m_PrefabInstance: {fileID: 6320572806549866845}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8670745910579194434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4853516160215270102}
+    m_Modifications:
+    - target: {fileID: 2203025267998167030, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_Name
+      value: WallCheck
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+--- !u!4 &2459032554230926133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+  m_PrefabInstance: {fileID: 8670745910579194434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7423601730371941514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2256658582637715144, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+  m_PrefabInstance: {fileID: 8670745910579194434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0fd45c56132c743918703a42cde2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
