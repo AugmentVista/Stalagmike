@@ -65,7 +65,7 @@ class PlayerController : MonoBehaviour
         if (InputManager.jumpInput && grounded) { jumpTicksLeft = jumpTicks; grounded = false; }
         if (InputManager.jumpInput && jumpTicksLeft > 0) { velocity.y += jumpForce; jumpTicksLeft--; }
         // Wall jump check. We want the player to have to intentionally re-jump to activate it, so add ticks when jump released.
-        if (!InputManager.jumpInput && wallDetector.Colliding) { jumpTicksLeft = jumpTicks / 2; }
+        if (!InputManager.jumpInput && wallDetector.Colliding) { jumpTicksLeft = jumpTicks; }
 
         // Reassign when done.
         rb.velocity = velocity;
