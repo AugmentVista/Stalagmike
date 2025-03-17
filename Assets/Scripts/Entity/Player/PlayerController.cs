@@ -60,7 +60,9 @@ class PlayerController : MonoBehaviour
         Vector2 velocity = rb.velocity;
         float targetVel = InputManager.moveValue * moveSpeed;
 
-        velocity.x = Mathf.Lerp(targetVel, velocity.x, Time.fixedDeltaTime);
+        float timeMod = (!grounded || wallDetector.Colliding) ? 0.9f : Time.fixedDeltaTime;
+
+        velocity.x = Mathf.Lerp(targetVel, velocity.x, timeMod);
 
         // Do jumpy things here.
         if (InputManager.jumpInput && grounded) { jumpTicksLeft = jumpTicks; grounded = false; }
@@ -71,7 +73,7 @@ class PlayerController : MonoBehaviour
             if (wallDetector.Colliding)
             {
                 velocity.x += (wallDetector.WallOffset.normalized).x * wallJumpMultiplier;
-                velocity.y += jumpForce * (wallJumpMultiplier - 1);
+                velocity.y += jumpForce;
             }
         }
         // Wall jump check. We want the player to have to intentionally re-jump to activate it, so add ticks when jump released.
