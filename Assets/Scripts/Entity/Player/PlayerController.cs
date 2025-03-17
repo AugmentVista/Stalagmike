@@ -20,6 +20,7 @@ class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 3;
     [SerializeField] int jumpTicks = 8;
     [SerializeField] float jumpForce = 0.65f;
+    [SerializeField] float wallJumpMultiplier = 2;
     /// <summary>
     /// Are we backwards?
     /// </summary>
@@ -35,7 +36,7 @@ class PlayerController : MonoBehaviour
         // Event stuff.
         groundDetector.Landed += () => { grounded = true; };
 
-        if(TryGetComponent(out HealthSystem healthSystem))
+        if (TryGetComponent(out HealthSystem healthSystem))
         {
             healthSystem.OnDeath += delegate { transform.position = RespawnPoint.position; };
         }
@@ -63,7 +64,16 @@ class PlayerController : MonoBehaviour
 
         // Do jumpy things here.
         if (InputManager.jumpInput && grounded) { jumpTicksLeft = jumpTicks; grounded = false; }
-        if (InputManager.jumpInput && jumpTicksLeft > 0) { velocity.y += jumpForce; jumpTicksLeft--; }
+        if (InputManager.jumpInput && jumpTicksLeft > 0)
+        {
+            velocity.y += jumpForce;
+            jumpTicksLeft--;
+            if (wallDetector.Colliding)
+            {
+                velocity.x += (wallDetector.WallOffset.normalized).x * wallJumpMultiplier;
+                velocity.y += jumpForce * (wallJumpMultiplier - 1);
+            }
+        }
         // Wall jump check. We want the player to have to intentionally re-jump to activate it, so add ticks when jump released.
         if (!InputManager.jumpInput && wallDetector.Colliding) { jumpTicksLeft = jumpTicks; }
 

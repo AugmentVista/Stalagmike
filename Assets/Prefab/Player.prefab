@@ -215,6 +215,7 @@ MonoBehaviour:
   moveSpeed: 4
   jumpTicks: 7
   jumpForce: 1
+  wallJumpMultiplier: 2
 --- !u!114 &6349347800071026386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1526,10 @@ PrefabInstance:
     - target: {fileID: 2203025267998167030, guid: 664534df383bceb42978d8159a08ea73, type: 3}
       propertyPath: m_Name
       value: WallCheck
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597032974826364750, guid: 664534df383bceb42978d8159a08ea73, type: 3}
+      propertyPath: m_Size.x
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 6517993315851313527, guid: 664534df383bceb42978d8159a08ea73, type: 3}
       propertyPath: m_LocalPosition.x
