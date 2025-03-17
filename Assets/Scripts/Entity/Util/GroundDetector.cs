@@ -15,6 +15,7 @@ internal class GroundDetector : InteractorBase
         // This may be better as a tag comparison, but for now we'll use components.
         if(!collision.TryGetComponent(out InteractorBase ignored))
         {
+            Debug.Log($"Landed on {collision.name}");
             Landed();
         }
     }

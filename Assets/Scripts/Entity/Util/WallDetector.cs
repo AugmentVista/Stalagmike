@@ -13,14 +13,19 @@ namespace Assets.Scripts.Entity.Util
     /// </summary>
     internal class WallDetector:InteractorBase
     {
-        private void OnTriggerEnter2D(Collider2D collision)
+        public bool Colliding = false;
+        private void OnTriggerStay2D(Collider2D collision)
         {
-            
+            if(!(Colliding||collision.TryGetComponent(out InteractorBase ignored)))
+            {
+                Colliding = true;
+                Debug.Log($"Wall detection on {collision.name}");
+            }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            
+            if(!collision.TryGetComponent(out InteractorBase ignored)) { Colliding = false; }
         }
     }
 }
