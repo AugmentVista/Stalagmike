@@ -20,11 +20,6 @@ public class TileBreakableSystem : MonoBehaviour
 
         foreach (var position in tilemap.cellBounds.allPositionsWithin)
         {
-
-            
-
-
-
             // TileBase is the base class for all TileMaps in UnityEngine.Tilemaps, GetTile is a method from TileBase class
             TileBase tile = tilemap.GetTile(position);
 

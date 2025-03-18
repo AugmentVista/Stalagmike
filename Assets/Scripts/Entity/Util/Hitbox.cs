@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts;
 using System;
+using System.Drawing;
 using UnityEngine;
 
 /// <summary>
@@ -36,9 +37,10 @@ internal class Hitbox : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out TileBreakableSystem tileSystem)) 
         {
             ContactPoint2D[] contactPoints = collision.contacts;
-
-            Vector3 desiredPoint = contactPoints[0].point;
-            OnTileHit(tileSystem, desiredPoint);
+            foreach (ContactPoint2D point in contactPoints)
+            {
+                OnTileHit(tileSystem, point.point);
+            }
         }
         secretCollider.enabled = false;
     }
