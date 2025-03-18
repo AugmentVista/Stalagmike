@@ -10,7 +10,11 @@ internal class Hitbox : MonoBehaviour
 {
     Collider2D trigger;
 
+    public Collider2D secretCollider; //Don't worry about it matthew
+
     public Action<HealthSystem> OnHit = delegate { };
+
+    public Action<TileBreakableSystem, Vector3> OnTileHit = delegate { };
 
     private void OnEnable()
     {
@@ -26,9 +30,32 @@ internal class Hitbox : MonoBehaviour
         trigger.enabled = false;
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out TileBreakableSystem tileSystem)) 
+        {
+            ContactPoint2D[] contactPoints = collision.contacts;
+
+            Vector3 desiredPoint = contactPoints[0].point;
+            OnTileHit(tileSystem, desiredPoint);
+        }
+        secretCollider.enabled = false;
+    }
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Hitboxes should only hit things that have a health system. If no HS, do nothing.
         if (collision.TryGetComponent(out HealthSystem target)) { OnHit(target); }
+
+        if (collision.TryGetComponent(out TileBreakableSystem tileSystem)) 
+        { 
+            if(!secretCollider.isActiveAndEnabled)
+            {
+                secretCollider.enabled = true;
+            }
+        }
     }
 }

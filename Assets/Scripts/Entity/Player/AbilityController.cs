@@ -31,6 +31,7 @@ internal class AbilityController : MonoBehaviour
     {
         // Event stuff.
         meleeHitbox.OnHit += OnMeleeHit;
+        meleeHitbox.OnTileHit += OnMeleeTileHit;
     }
 
     private void OnEnable()
@@ -91,6 +92,15 @@ internal class AbilityController : MonoBehaviour
         {
             target.TakeDamage(meleeHitInfo);
             //meleeAttack.SetActive(false);
+        }
+    }
+
+    private void OnMeleeTileHit(TileBreakableSystem tileBreakable, Vector3 attackPosition)
+    {
+        if (tileBreakable.gameObject != gameObject)
+        {
+            tileBreakable.TryBreakTile(attackPosition, 10);
+            meleeAttack.SetActive(false);
         }
     }
 
