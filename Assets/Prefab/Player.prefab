@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4761622383395771714}
   - component: {fileID: 6932567452085584872}
   - component: {fileID: 7889861165042795141}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Full Heart 5
   m_TagString: PlayerHealthUI
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 1106214869713128269}
   - component: {fileID: 8020748463574357542}
   - component: {fileID: 9177113967258667871}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6943452522051643604
 MonoBehaviour:
@@ -231,7 +231,7 @@ MonoBehaviour:
     damage: 5
   meleeCooldownTicks: 15
   meleeActiveTicks: 5
-  ammo: {fileID: 987083297778883385, guid: 27277137d0605bd45bd741cdb791e0c1, type: 3}
+  ammo: {fileID: 6987181738575193527, guid: af327ec6fa521634f9ef3be0064ad8e7, type: 3}
   startingVelocityScale: 5
   rangedHitInfo:
     damage: 5
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 8705335236898658437}
   - component: {fileID: 7253445933597800602}
   - component: {fileID: 7624832554037356608}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Empty Heart 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7362556701352240317}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Player Health UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 8327297191523896690}
   - component: {fileID: 2512621397310505017}
   - component: {fileID: 5070898435552882342}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Full Heart 1
   m_TagString: PlayerHealthUI
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 7401729905465157070}
   - component: {fileID: 803493288017549468}
   - component: {fileID: 5547334002298127910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 3786173012637091754}
   - component: {fileID: 7661280745247976021}
   - component: {fileID: 5543877640832506807}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Full Heart 4
   m_TagString: PlayerHealthUI
   m_Icon: {fileID: 0}
@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 4715625493084189588}
   - component: {fileID: 5583756126422182507}
   - component: {fileID: 2330350026308719885}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Full Heart 3
   m_TagString: PlayerHealthUI
   m_Icon: {fileID: 0}
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 1453690804338084390}
   - component: {fileID: 12596854812897804}
   - component: {fileID: 2329627853385428454}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Empty Heart 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +871,8 @@ GameObject:
   - component: {fileID: 7246163226204178302}
   - component: {fileID: 3968096114267436755}
   - component: {fileID: 2573247710869682118}
-  m_Layer: 0
+  - component: {fileID: 1421348535738283802}
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -887,7 +888,7 @@ Transform:
   m_GameObject: {fileID: 6041095747198186919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0.75, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -929,7 +930,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.09375, y: 0.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -950,7 +951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381112cbbc711164f86af15c47b51ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secretCollider: {fileID: 0}
+  secretCollider: {fileID: 1421348535738283802}
 --- !u!212 &2573247710869682118
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -992,7 +993,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300166, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1003,6 +1004,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1421348535738283802
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041095747198186919}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.09375, y: 0.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.09375, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1 &6248110930090141465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1061,7 @@ GameObject:
   - component: {fileID: 6592993663166290519}
   - component: {fileID: 4568525689712763529}
   - component: {fileID: 4713390161609213497}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Player Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,7 +1160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2396852758885167565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1194,7 @@ GameObject:
   - component: {fileID: 3163929108204215511}
   - component: {fileID: 1815309815738280959}
   - component: {fileID: 4295597514687485422}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Empty Heart 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1224,7 +1270,7 @@ GameObject:
   - component: {fileID: 1575420057571089329}
   - component: {fileID: 8094596030761096369}
   - component: {fileID: 633919780050182485}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Full Heart 2
   m_TagString: PlayerHealthUI
   m_Icon: {fileID: 0}
@@ -1299,7 +1345,7 @@ GameObject:
   - component: {fileID: 3791779081706840222}
   - component: {fileID: 8819039079095219397}
   - component: {fileID: 9063073117654237069}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Empty Heart 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1375,7 +1421,7 @@ GameObject:
   - component: {fileID: 18180991706644296}
   - component: {fileID: 3271319843686997105}
   - component: {fileID: 5286679464389330026}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Empty Heart 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,6 +1497,10 @@ PrefabInstance:
     - target: {fileID: 5367202945754186638, guid: 712acff4fb0cb3044854153e60e5d7a2, type: 3}
       propertyPath: m_Name
       value: Groundcheck
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367202945754186638, guid: 712acff4fb0cb3044854153e60e5d7a2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8722680193274948687, guid: 712acff4fb0cb3044854153e60e5d7a2, type: 3}
       propertyPath: m_LocalPosition.x
