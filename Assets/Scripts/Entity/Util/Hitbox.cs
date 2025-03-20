@@ -11,7 +11,7 @@ internal class Hitbox : MonoBehaviour
 {
     Collider2D trigger;
 
-    public Collider2D secretCollider; // Uuuh I will worry about it.
+    //public Collider2D secretCollider; // Uuuh I will worry about it.
 
     public Action<HealthSystem> OnHit = delegate { };
 
@@ -49,13 +49,5 @@ internal class Hitbox : MonoBehaviour
     {
         // Hitboxes should only hit things that have a health system. If no HS, do nothing.
         if (collision.TryGetComponent(out HealthSystem target)) { OnHit(target); }
-
-        if (collision.TryGetComponent(out TileBreakableSystem tileSystem)) 
-        { 
-            if(!secretCollider.isActiveAndEnabled)
-            {
-                secretCollider.enabled = true;
-            }
-        }
     }
 }
