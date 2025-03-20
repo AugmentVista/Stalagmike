@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.Entity.Util;
 using System;
 using UnityEngine;
 
@@ -16,12 +17,26 @@ internal class Hitbox : MonoBehaviour
 
     public Action<TileBreakableSystem, Vector3> OnTileHit = delegate { };
 
+    [SerializeField] GameObject blockBreakHitbox;
+
     private void OnEnable()
     {
         // Double check that we have a collider, make sure its a trigger, and enable it whenever we're activated.
         if (trigger == null) trigger = GetComponent<Collider2D>();
         trigger.isTrigger = true;
         trigger.enabled = true;
+
+        if(blockBreakHitbox!= null)
+        {
+            GameObject blerg = Instantiate(this.blockBreakHitbox);
+
+            // Either i did something wrong or it wont let me just use a transform. idk. zzz.
+            blerg.transform.position = transform.position;
+            blerg.transform.rotation = transform.rotation;
+
+            blerg.TryGetComponent(out BlockBreakHitbox blockBreakHitbox);
+            blockBreakHitbox.OnTileHit = OnTileHit;
+        }
     }
 
     private void OnDisable()
@@ -29,22 +44,6 @@ internal class Hitbox : MonoBehaviour
         // If we're disabled, we should disable our collider so nothing picks it up when it shouldn't.
         trigger.enabled = false;
     }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out TileBreakableSystem tileSystem)) 
-        {
-            ContactPoint2D[] contactPoints = collision.contacts;
-            foreach (ContactPoint2D point in contactPoints)
-            {
-                OnTileHit(tileSystem, point.point);
-            }
-        }
-        secretCollider.enabled = false;
-    }
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
