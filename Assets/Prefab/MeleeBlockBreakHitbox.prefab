@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2179855902177662766}
   - component: {fileID: 6758816795234535535}
+  - component: {fileID: 5191738694271461247}
   m_Layer: 6
   m_Name: MeleeBlockBreakHitbox
   m_TagString: Untagged
@@ -77,3 +78,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &5191738694271461247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135771055733295826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40af2c37ee1145841929c0f18ac5e2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durationTicks: 5
