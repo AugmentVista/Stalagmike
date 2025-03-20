@@ -10,7 +10,7 @@ internal class Hitbox : MonoBehaviour
 {
     Collider2D trigger;
 
-    public Collider2D secretCollider; //Don't worry about it matthew
+    public Collider2D secretCollider; // Uuuh I will worry about it.
 
     public Action<HealthSystem> OnHit = delegate { };
 
