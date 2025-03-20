@@ -27,7 +27,7 @@ public class TileBreakableSystem : MonoBehaviour
             {
                 numberOfPositionsWithtin++;
                 // Initialize tile state with max health
-                tileDurabilityDictionary[position] = new TileState { maxDurability = 10, currentDurability = 10 };  // Example durability
+                tileDurabilityDictionary[position] = new TileState { maxDurability = 10, currentDurability = 10 };
             }
         }
 
@@ -66,7 +66,6 @@ public class TileBreakableSystem : MonoBehaviour
         if (tileState.currentDurability < tileState.maxDurability)
         {
             // Update visual feedback or play a sound when the tile's durability is reduced
-            // This can include animations, sound effects, etc.
         }
 
         // Optionally, provide warning feedback when the tile durability is low (e.g., less than 20%)
@@ -103,11 +102,9 @@ public class TileBreakableSystem : MonoBehaviour
     // Resets all tiles when the level is restarted
     public void ResettileDurabilityDictionary()
     {
-	// tileDurabilityDictionary.Keys reads as weird, what are Keys in this context? 
         foreach (var position in tileDurabilityDictionary.Keys)
         {
             tileDurabilityDictionary[position] = new TileState { maxDurability = 10, currentDurability = 10 };  // Reset durability
-            // Optionally, restore the tile to its initial state (e.g., reassign the original tile)
             // tilemap.SetTile(position, originalTile);  // If needed
         }
     }

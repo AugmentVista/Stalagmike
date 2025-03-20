@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts;
 using System;
-using System.Drawing;
 using UnityEngine;
 
 /// <summary>
