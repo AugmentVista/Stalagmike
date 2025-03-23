@@ -52,7 +52,8 @@ internal class Hitbox : MonoBehaviour
         if (collision.TryGetComponent(out HealthSystem target)) { OnHit(target); }
 
         if (collision.TryGetComponent(out TileBreakableSystem tileSystem)) 
-        { 
+        {
+            if (!secretCollider) {return;} 
             if(!secretCollider.isActiveAndEnabled)
             {
                 secretCollider.enabled = true;
