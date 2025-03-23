@@ -16,6 +16,7 @@ internal class AbilityController : MonoBehaviour
     [SerializeField] HitInfo meleeHitInfo;
     [SerializeField] int meleeCooldownTicks = 15;
     [SerializeField] int meleeActiveTicks = 5;
+    [SerializeField] int tileDamage = 10;
 
     [Header("Ranged Stats")]
     [SerializeField] GameObject ammo;
@@ -99,7 +100,7 @@ internal class AbilityController : MonoBehaviour
     {
         if (tileBreakable.gameObject != gameObject)
         {
-            tileBreakable.TryBreakTile(attackPosition, 10);
+            tileBreakable.TryBreakTile(attackPosition, tileDamage);
             meleeAttack.SetActive(false);
         }
     }
