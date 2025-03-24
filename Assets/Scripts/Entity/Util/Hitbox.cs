@@ -34,6 +34,7 @@ internal class Hitbox : MonoBehaviour
             blerg.transform.position = transform.position;
             blerg.transform.rotation = transform.rotation;
 
+            // Set our action because idk how best to route it.
             blerg.TryGetComponent(out BlockBreakHitbox blockBreakHitbox);
             blockBreakHitbox.OnTileHit = OnTileHit;
         }
