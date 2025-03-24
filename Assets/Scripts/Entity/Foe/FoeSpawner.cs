@@ -7,6 +7,7 @@ namespace Assets.Scripts.Entity.Foe
 {
     internal class FoeSpawner : MonoBehaviour
     {
+        // Place foe prefabs here.
         [SerializeField] GameObject[] spawnableFoes;
 
         FoeBase[] activeFoes;
@@ -21,12 +22,15 @@ namespace Assets.Scripts.Entity.Foe
 
         private void FixedUpdate()
         {
+            // Tick counter logic. Spawn every spawnRate ticks.
             currentTicks++;
             if (currentTicks>=spawnRate) { Spawn(); currentTicks=0; }
         }
 
+        // Tries to spawn a foe.
         void Spawn()
         {
+            // Only do things if we have room to spawn more foes.
             if (activeFoes.Length<maxSpawns)
             {
                 // Select a random foe, instantiate it at our position, then get its foebase component.
@@ -38,8 +42,10 @@ namespace Assets.Scripts.Entity.Foe
                 newList.Add(foe);
                 activeFoes = newList.ToArray();
 
+                // Add ondeath behavior.
                 hs.OnDeath += OnChildDeath;
 
+                // When the thing we spawned dies, remove it from the list and unlisten.
                 void OnChildDeath()
                 {
                     hs.OnDeath-=OnChildDeath;
