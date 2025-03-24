@@ -969,6 +969,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174435383}
   m_CullTransparentMesh: 1
+--- !u!1 &183762153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6041095747198186919, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
+  m_PrefabInstance: {fileID: 979439964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &249600438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2146,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886901056}
   m_CullTransparentMesh: 1
+--- !u!1 &895508490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6794159606117083333, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
+  m_PrefabInstance: {fileID: 979439964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &895508492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895508490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fb5563fd1320040b682c610567660b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 183762153}
+  weaponDistance: 0.8
+  maxAttackRange: 1
 --- !u!1 &895558813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,7 +2452,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6794159606117083333, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 895508492}
   m_SourcePrefab: {fileID: 100100000, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
 --- !u!1 &1026276193
 GameObject:
