@@ -2445,6 +2445,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6349347800071026386, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
+      propertyPath: meleeCooldownTicks
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6943452522051643604, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
       propertyPath: RespawnPoint
       value: 

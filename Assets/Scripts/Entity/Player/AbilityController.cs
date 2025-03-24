@@ -92,7 +92,7 @@ internal class AbilityController : MonoBehaviour
         if (target.gameObject != gameObject)
         {
             target.TakeDamage(meleeHitInfo);
-            //meleeAttack.SetActive(false);
+            meleeAttack.SetActive(false);
         }
     }
 
