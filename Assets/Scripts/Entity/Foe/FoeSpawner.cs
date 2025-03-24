@@ -51,5 +51,16 @@ namespace Assets.Scripts.Entity.Foe
                 }
             }
         }
+
+        private void OnDisable()
+        {
+            for (int i = 0; i<activeFoes.Length; i++)
+            {
+                HealthSystem hs = (HealthSystem)activeFoes[i].GetComponent(typeof(HealthSystem));
+
+                // Deal the max possible damage to the foe so it gets destroyed.
+                hs.TakeDamage(int.MaxValue);
+            }
+        }
     }
 }
