@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using System.Collections;
 
 public class TileBreakableSystem : MonoBehaviour
 {
@@ -39,18 +40,16 @@ public class TileBreakableSystem : MonoBehaviour
     {
         Debug.LogWarning("Am i being hit?");
         Vector3Int cellPosition = tilemap.WorldToCell(attackPosition);  // Convert the attack position to Tilemap cell position
-        Debug.LogWarning(tileDurabilityDictionary.ContainsKey(cellPosition));
 
         // Check if the tile is breakable
         if (tileDurabilityDictionary.ContainsKey(cellPosition))  
         {
-            Debug.LogWarning($"Hit at location {cellPosition}");
             TileState tileState = tileDurabilityDictionary[cellPosition];
 
             tileState.currentDurability -= damage;  // Apply damage to the tile's durability
 
-            // Update feedback (e.g., durability visual/audio)
-            ShowTileFeedback(cellPosition, tileState);
+
+            //ShowTileFeedback(cellPosition, tileState);
 
             if (tileState.currentDurability <= 0)
             {
@@ -68,10 +67,10 @@ public class TileBreakableSystem : MonoBehaviour
             // Update visual feedback or play a sound when the tile's durability is reduced
         }
 
-        // Optionally, provide warning feedback when the tile durability is low (e.g., less than 20%)
+        // Provide warning feedback when the tile durability is low (e.g., less than 20%)
         if (tileState.currentDurability <= tileState.maxDurability * 0.2f)
         {
-            // Play a warning sound or change tile color (warning feedback)
+            // Play a sound or display a visual changes when tile is about to break
         }
     }
 
@@ -79,24 +78,26 @@ public class TileBreakableSystem : MonoBehaviour
     // Destroy the tile and remove it from the Tilemap
     private void DestroyTile(Vector3Int position)
     {
-        // Optionally, instantiate a visual effect (like a particle effect) at the tile's position
+        GameObject particleEffect;
+        // Instantiate particle effect at the position the destroyed tile with an offset of
         if (breakEffectPrefab)
         {
             Vector3 worldPos = tilemap.CellToWorld(position);
-            Instantiate(breakEffectPrefab, worldPos, Quaternion.identity);
+            particleEffect = Instantiate(breakEffectPrefab, worldPos, Quaternion.identity);
         }
 
-        // Optionally, play a break sound
+        // Play a break sound
         if (breakSound)
         {
             AudioSource.PlayClipAtPoint(breakSound, tilemap.CellToWorld(position));
         }
 
-        // Remove the tile from the Tilemap (set to null)
+        // Remove the tile from the Tilemap
         tilemap.SetTile(position, null);
         
         // Remove the tile state tracking
-        tileDurabilityDictionary.Remove(position);
+        tileDurabilityDictionary.Remove(position); 
+       
     }
 
     // Resets all tiles when the level is restarted

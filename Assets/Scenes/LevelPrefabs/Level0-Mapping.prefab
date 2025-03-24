@@ -5146,7 +5146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 4357619850429130776}
   breakSound: {fileID: 0}
-  breakEffectPrefab: {fileID: 0}
+  breakEffectPrefab: {fileID: 1967835574231978638, guid: 3e196c9e632c76841a71cb6e2dc6d010, type: 3}
 --- !u!1 &3908614701284360620
 GameObject:
   m_ObjectHideFlags: 0
