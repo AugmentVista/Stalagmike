@@ -28,11 +28,7 @@ internal class Hitbox : MonoBehaviour
 
         if(blockBreakHitbox!= null)
         {
-            GameObject blerg = Instantiate(this.blockBreakHitbox);
-
-            // Either i did something wrong or it wont let me just use a transform. idk. zzz.
-            blerg.transform.position = transform.position;
-            blerg.transform.rotation = transform.rotation;
+            GameObject blerg = Instantiate(this.blockBreakHitbox, transform);
 
             // Set our action because idk how best to route it.
             blerg.TryGetComponent(out BlockBreakHitbox blockBreakHitbox);
