@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.Entity.Util;
 using System;
 using UnityEngine;
 
@@ -10,11 +11,13 @@ internal class Hitbox : MonoBehaviour
 {
     Collider2D trigger;
 
-    public Collider2D secretCollider; //Don't worry about it matthew
+    //public Collider2D secretCollider; // Uuuh I will worry about it.
 
     public Action<HealthSystem> OnHit = delegate { };
 
     public Action<TileBreakableSystem, Vector3> OnTileHit = delegate { };
+
+    [SerializeField] GameObject blockBreakHitbox;
 
     private void OnEnable()
     {
@@ -22,6 +25,15 @@ internal class Hitbox : MonoBehaviour
         if (trigger == null) trigger = GetComponent<Collider2D>();
         trigger.isTrigger = true;
         trigger.enabled = true;
+
+        if(blockBreakHitbox!= null)
+        {
+            GameObject blerg = Instantiate(this.blockBreakHitbox, transform);
+
+            // Set our action because idk how best to route it.
+            blerg.TryGetComponent(out BlockBreakHitbox blockBreakHitbox);
+            blockBreakHitbox.OnTileHit = OnTileHit;
+        }
     }
 
     private void OnDisable()
@@ -30,34 +42,9 @@ internal class Hitbox : MonoBehaviour
         trigger.enabled = false;
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out TileBreakableSystem tileSystem)) 
-        {
-            ContactPoint2D[] contactPoints = collision.contacts;
-            foreach (ContactPoint2D point in contactPoints)
-            {
-                OnTileHit(tileSystem, point.point);
-            }
-        }
-        secretCollider.enabled = false;
-    }
-
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Hitboxes should only hit things that have a health system. If no HS, do nothing.
         if (collision.TryGetComponent(out HealthSystem target)) { OnHit(target); }
-
-        if (collision.TryGetComponent(out TileBreakableSystem tileSystem)) 
-        {
-            if (!secretCollider) {return;} 
-            if(!secretCollider.isActiveAndEnabled)
-            {
-                secretCollider.enabled = true;
-            }
-        }
     }
 }

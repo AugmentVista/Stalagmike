@@ -953,6 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secretCollider: {fileID: 1421348535738283802}
+  blockBreakHitbox: {fileID: 2135771055733295826, guid: 12618ea2065c3574a9150f073d864cc9, type: 3}
 --- !u!212 &2573247710869682118
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1589,6 +1590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secretCollider: {fileID: 5224289069897294154}
+  blockBreakHitbox: {fileID: 0}
 --- !u!212 &564804691182837957
 SpriteRenderer:
   m_ObjectHideFlags: 0
