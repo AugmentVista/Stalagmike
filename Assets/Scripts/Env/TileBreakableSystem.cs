@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
-using System.Collections;
 
 public class TileBreakableSystem : MonoBehaviour
 {
@@ -65,7 +64,6 @@ public class TileBreakableSystem : MonoBehaviour
         {
             // Update visual feedback or play a sound when the tile's durability is reduced
         }
-
         // Provide warning feedback when the tile durability is low (e.g., less than 20%)
         if (tileState.currentDurability <= tileState.maxDurability * 0.2f)
         {
