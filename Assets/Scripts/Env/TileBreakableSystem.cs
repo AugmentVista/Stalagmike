@@ -58,7 +58,6 @@ public class TileBreakableSystem : MonoBehaviour
         }
     }
 
-
     private void ShowTileFeedback(Vector3Int position, TileState tileState)
     {
         // Play feedback when damage occurs
