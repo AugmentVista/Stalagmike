@@ -10,22 +10,29 @@ namespace Assets.Scripts.Env
     internal class Hazard : MonoBehaviour
     {
         [SerializeField] HitInfo damageInfo;
-        [SerializeField] int damageTicks= 50;
-        [SerializeField] int damageCooldownTicks = 1;
-        List<HealthSystem> blerg = new();
+        public int damageTicks= 200;
+        public int damageCooldownTicks = 200;
+        List<HealthSystem> healthSystemList = new();
+        bool timerActive;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out HealthSystem healthSystem))
             {
-                if (!blerg.Contains(healthSystem)) { blerg.Add(healthSystem); }
+                if (!healthSystemList.Contains(healthSystem)) 
+                { 
+                    healthSystemList.Add(healthSystem);
+                }
             }
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out HealthSystem healthSystem))
             {
-                if (blerg.Contains(healthSystem)) { blerg.Remove(healthSystem); }
+                if (healthSystemList.Contains(healthSystem)) 
+                { 
+                    healthSystemList.Remove(healthSystem);
+                }
             }
         }
         private void FixedUpdate()
@@ -37,11 +44,13 @@ namespace Assets.Scripts.Env
         {
             if (damageCooldownTicks < 1)
             {
-                foreach (HealthSystem healthSystem in blerg)
+                List<HealthSystem> healthSystemListCopy = new List<HealthSystem>(healthSystemList);
+                foreach (HealthSystem healthSystem in healthSystemListCopy)
                 {
+                    Debug.Log($"HealthSystem Count is {healthSystemListCopy.Count}");
                     healthSystem.TakeDamage(damageInfo);
-                    damageCooldownTicks = damageTicks;
                 }
+                damageCooldownTicks = damageTicks;
             }
             else { damageCooldownTicks--; }
         }

@@ -8163,6 +8163,10 @@ PrefabInstance:
       propertyPath: breakEffectPrefab
       value: 
       objectReference: {fileID: 1967835574231978638, guid: 3e196c9e632c76841a71cb6e2dc6d010, type: 3}
+    - target: {fileID: 6451821791374626541, guid: d3c684b0d9f4c1844935511c20019e20, type: 3}
+      propertyPath: damageCooldownTicks
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -21,7 +21,7 @@ namespace Assets.Scripts
         private void Start()
         {
             health = maxHp;
-            Debug.Log($"HealthSystem displays {health}");
+            //Debug.Log($"HealthSystem displays {health}");
 
             // Add a lambda to improve debugging, and prevent errors when calling this without anything assigned.
             OnDeath += delegate { if (debugMe) { Debug.Log($"{name} was killed."); health = maxHp; } };
@@ -35,7 +35,7 @@ namespace Assets.Scripts
         {
             health -= hit.damage;
 
-            Debug.Log($"Took {hit.damage} damage, now at {health} hp.");
+            //Debug.Log($"Took {hit.damage} damage, now at {health} hp.");
 
             if (OnHitFeedback!=null) { Instantiate(OnHitFeedback, transform).transform.parent = null; }
             if (health <= 0) { OnDeath(); }
