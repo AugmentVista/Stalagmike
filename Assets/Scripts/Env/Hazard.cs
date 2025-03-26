@@ -10,6 +10,8 @@ namespace Assets.Scripts.Env
     internal class Hazard : MonoBehaviour
     {
         [SerializeField] HitInfo damageInfo;
+        [SerializeField] int damageTicks= 50;
+        [SerializeField] int damageCooldownTicks = 1;
         List<HealthSystem> blerg = new();
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -28,10 +30,20 @@ namespace Assets.Scripts.Env
         }
         private void FixedUpdate()
         {
-            foreach (HealthSystem healthSystem in blerg)
+            HurtPlayer();
+        }
+
+        private void HurtPlayer()
+        {
+            if (damageCooldownTicks < 1)
             {
-                healthSystem.TakeDamage(damageInfo);
+                foreach (HealthSystem healthSystem in blerg)
+                {
+                    healthSystem.TakeDamage(damageInfo);
+                    damageCooldownTicks = damageTicks;
+                }
             }
+            else { damageCooldownTicks--; }
         }
     }
 }
