@@ -47,10 +47,9 @@ namespace Assets.Scripts.Env
                 List<HealthSystem> healthSystemListCopy = new List<HealthSystem>(healthSystemList);
                 foreach (HealthSystem healthSystem in healthSystemListCopy)
                 {
-                    Debug.Log($"HealthSystem Count is {healthSystemListCopy.Count}");
                     healthSystem.TakeDamage(damageInfo);
                 }
-                damageCooldownTicks = damageTicks;
+                    damageCooldownTicks = damageTicks;
             }
             else { damageCooldownTicks--; }
         }

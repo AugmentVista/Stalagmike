@@ -35,7 +35,7 @@ namespace Assets.Scripts
         {
             health -= hit.damage;
 
-            //Debug.Log($"Took {hit.damage} damage, now at {health} hp.");
+            Debug.Log($"Took {hit.damage} damage, now at {health} hp.");
 
             if (OnHitFeedback!=null) { Instantiate(OnHitFeedback, transform).transform.parent = null; }
             if (health <= 0) { OnDeath(); }
