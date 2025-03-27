@@ -10,28 +10,48 @@ namespace Assets.Scripts.Env
     internal class Hazard : MonoBehaviour
     {
         [SerializeField] HitInfo damageInfo;
-        List<HealthSystem> blerg = new();
+        public int damageTicks= 200;
+        public int damageCooldownTicks = 200;
+        List<HealthSystem> healthSystemList = new();
+        bool timerActive;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out HealthSystem healthSystem))
             {
-                if (!blerg.Contains(healthSystem)) { blerg.Add(healthSystem); }
+                if (!healthSystemList.Contains(healthSystem)) 
+                { 
+                    healthSystemList.Add(healthSystem);
+                }
             }
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out HealthSystem healthSystem))
             {
-                if (blerg.Contains(healthSystem)) { blerg.Remove(healthSystem); }
+                if (healthSystemList.Contains(healthSystem)) 
+                { 
+                    healthSystemList.Remove(healthSystem);
+                }
             }
         }
         private void FixedUpdate()
         {
-            foreach (HealthSystem healthSystem in blerg)
+            HurtPlayer();
+        }
+
+        private void HurtPlayer()
+        {
+            if (damageCooldownTicks < 1)
             {
-                healthSystem.TakeDamage(damageInfo);
+                List<HealthSystem> healthSystemListCopy = new List<HealthSystem>(healthSystemList);
+                foreach (HealthSystem healthSystem in healthSystemListCopy)
+                {
+                    healthSystem.TakeDamage(damageInfo);
+                }
+                    damageCooldownTicks = damageTicks;
             }
+            else { damageCooldownTicks--; }
         }
     }
 }
