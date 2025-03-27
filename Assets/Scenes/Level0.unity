@@ -8573,6 +8573,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[918].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 5241285165056789764, guid: d3c684b0d9f4c1844935511c20019e20, type: 3}
+      propertyPath: damageInfo.damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5556311620816734183, guid: d3c684b0d9f4c1844935511c20019e20, type: 3}
       propertyPath: breakEffectPrefab
       value: 
