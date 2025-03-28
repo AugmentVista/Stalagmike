@@ -13,7 +13,7 @@ namespace Assets.Scripts.Pickups
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (TryGetComponent(out HealthSystem hs) && TryGetComponent(out PlayerController ignored))
+            if (collision.TryGetComponent(out HealthSystem hs) && collision.TryGetComponent(out PlayerController ignored))
             {
                 // Deal negative damage to make it quicker.
                 hs.TakeDamage(value * -1);
