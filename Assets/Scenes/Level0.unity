@@ -788,7 +788,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &167751044
 SpriteRenderer:
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &308849128
 SpriteRenderer:
@@ -1240,7 +1240,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &317569094
 SpriteRenderer:
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &430812654
 SpriteRenderer:
@@ -1738,6 +1738,14 @@ MonoBehaviour:
   - {fileID: 788817790}
   targetRespawnPoint: {fileID: 780527779}
   newRespawnPoint: {fileID: 0}
+  limpFlags:
+  - {fileID: 568415803, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  - {fileID: -340030045, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  - {fileID: 360372000, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  flowingFlags:
+  - {fileID: 1069608291, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  - {fileID: -617572311, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  - {fileID: -1046502938, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
 --- !u!61 &679278503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2226,7 +2234,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -340030045, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  m_Sprite: {fileID: 360372000, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
   m_Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2326,7 +2334,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &863403648
 SpriteRenderer:
@@ -2599,6 +2607,14 @@ MonoBehaviour:
   - {fileID: 788817790}
   targetRespawnPoint: {fileID: 788817790}
   newRespawnPoint: {fileID: 0}
+  limpFlags:
+  - {fileID: 568415803, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  - {fileID: -340030045, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  - {fileID: 360372000, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  flowingFlags:
+  - {fileID: 1069608291, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  - {fileID: -617572311, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  - {fileID: -1046502938, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
 --- !u!61 &897051201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2705,7 +2721,7 @@ Transform:
   m_GameObject: {fileID: 897051199}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.5, z: 0}
+  m_LocalPosition: {x: 0, y: -8.53, z: 0}
   m_LocalScale: {x: 200, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2745,7 +2761,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &920684075
 SpriteRenderer:
@@ -2812,7 +2828,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &941182714
 GameObject:
@@ -2874,11 +2890,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4853516160215270102, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.1
       objectReference: {fileID: 0}
     - target: {fileID: 4853516160215270102, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 44.5
+      value: 31.8
       objectReference: {fileID: 0}
     - target: {fileID: 4853516160215270102, guid: 23a61c5bb4719c544b3dacec6645dc04, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2986,7 +3002,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1007098765
 SpriteRenderer:
@@ -3053,7 +3069,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1026276193
 GameObject:
@@ -3506,7 +3522,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1060958403
 SpriteRenderer:
@@ -3766,7 +3782,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1238461181
 SpriteRenderer:
@@ -3833,7 +3849,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1260758859
 GameObject:
@@ -4018,7 +4034,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1267384380
 SpriteRenderer:
@@ -5156,7 +5172,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1524657017
 SpriteRenderer:
@@ -5468,7 +5484,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1610010936
 SpriteRenderer:
@@ -5535,7 +5551,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615931638
 GameObject:
@@ -5885,7 +5901,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1750422129
 SpriteRenderer:
@@ -5952,6 +5968,46 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 1776274535}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1776274534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1776274535}
+  m_Layer: 0
+  m_Name: Dirt Foe Spawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1776274535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776274534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1610010937}
+  - {fileID: 1838535526}
+  - {fileID: 1007098766}
+  - {fileID: 1750422130}
+  - {fileID: 920684076}
+  - {fileID: 1948560615}
+  - {fileID: 1830236735}
+  - {fileID: 1801892278}
+  - {fileID: 1238461182}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1782165663
@@ -6102,7 +6158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 568415803, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
+  m_Sprite: {fileID: -1466762728, guid: 8f701da98f1899a43bcf051d1997fffd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6147,7 +6203,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1801892277
 SpriteRenderer:
@@ -6214,7 +6270,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1830236732
 GameObject:
@@ -6250,7 +6306,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1830236734
 SpriteRenderer:
@@ -6317,7 +6373,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837247214
 GameObject:
@@ -6399,7 +6455,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1838535525
 SpriteRenderer:
@@ -6466,7 +6522,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858384133 stripped
 GameObject:
@@ -6628,7 +6684,7 @@ MonoBehaviour:
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
   - {fileID: 5604312987955109456, guid: 306aff61c7a24604dbe0b00a1a53f23b, type: 3}
-  spawnRate: 1000
+  spawnRate: 500
   maxSpawns: 5
 --- !u!212 &1948560614
 SpriteRenderer:
@@ -6695,7 +6751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007142567
 GameObject:
@@ -7096,12 +7152,4 @@ SceneRoots:
   - {fileID: 1745290962}
   - {fileID: 1615931639}
   - {fileID: 494024334}
-  - {fileID: 1610010937}
-  - {fileID: 1838535526}
-  - {fileID: 1007098766}
-  - {fileID: 1750422130}
-  - {fileID: 920684076}
-  - {fileID: 1948560615}
-  - {fileID: 1830236735}
-  - {fileID: 1801892278}
-  - {fileID: 1238461182}
+  - {fileID: 1776274535}
