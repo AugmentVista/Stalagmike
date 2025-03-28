@@ -7,18 +7,18 @@ using UnityEngine;
 
 namespace Assets.Scripts.Pickups
 {
-    class HPPickup:MonoBehaviour
+    class HPPickup : MonoBehaviour
     {
-        [SerializeField]int value;
+        [SerializeField] int value;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(TryGetComponent(out HealthSystem hs)&&TryGetComponent(out PlayerController ignored))
+            if (TryGetComponent(out HealthSystem hs) && TryGetComponent(out PlayerController ignored))
             {
                 // Deal negative damage to make it quicker.
                 hs.TakeDamage(value * -1);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 }
