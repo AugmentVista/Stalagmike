@@ -18,6 +18,7 @@ namespace Assets.Scripts.Pickups
                 // Deal negative damage to make it quicker.
                 hs.TakeDamage(value * -1);
             }
+            Destroy(gameObject);
         }
     }
 }
