@@ -52,7 +52,7 @@ namespace Assets.Scripts.Entity.Foe
 
                     // Remove from list.
                     var otherNewList = activeFoes.ToList();
-                    newList.Remove(foe);
+                    otherNewList.Remove(foe);
                     activeFoes = otherNewList.ToArray();
                 }
             }
