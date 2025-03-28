@@ -10,7 +10,7 @@ namespace Assets.Scripts.Entity.Foe
         // Place foe prefabs here.
         [SerializeField] GameObject[] spawnableFoes;
 
-        FoeBase[] activeFoes;
+        FoeBase[] activeFoes = { };
 
         // Number of ticks per spawn.
         [SerializeField] int spawnRate = 250;
