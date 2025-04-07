@@ -14,8 +14,8 @@ public class PlayerUIManager : MonoBehaviour
     private void Start()
     {
         healthSystem = GetComponent<HealthSystem>();
-        Debug.Log($"Is HealthSystem Valid? {healthSystem.isActiveAndEnabled}");
-        Debug.Log(hearts.Count.ToString());
+        //Debug.Log($"Is HealthSystem Valid? {healthSystem.isActiveAndEnabled}");
+        //Debug.Log(hearts.Count.ToString());
     }
 
     private void Update()
