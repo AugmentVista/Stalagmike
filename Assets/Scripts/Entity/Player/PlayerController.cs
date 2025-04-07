@@ -8,6 +8,7 @@ class PlayerController : MonoBehaviour
     [Header("Refs")]
     [SerializeField] GroundDetector groundDetector;
     [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     AbilityController abilityController;
     Action PhysicsProcess = delegate { };
@@ -77,6 +78,7 @@ class PlayerController : MonoBehaviour
     private void HandleAnimation()
     {
         animator.SetFloat(0, rb.velocity.x);
+        spriteRenderer.flipX = IsFlipped;
         if (InputManager.jumpInput && jumpTicksLeft > 0) { animator.SetTrigger(1); }
     }
 }
