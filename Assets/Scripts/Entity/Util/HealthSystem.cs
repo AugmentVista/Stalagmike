@@ -33,9 +33,11 @@ namespace Assets.Scripts
         /// <param name="hit">The data associated with the hit we're taking.</param>
         public void TakeDamage(HitInfo hit)
         {
+            if (hit.damage<=0) { Debug.LogWarning("HitInfo.damage probably shouldn't be negative, but I'm guessing I was too lazy to do it right."); }
             health -= hit.damage;
 
             Debug.Log($"Took {hit.damage} damage, now at {health} hp.");
+            if (health > maxHp) { health = maxHp; Debug.Log("HP exceeded max, set HP to max."); }
 
             if (OnHitFeedback!=null) { Instantiate(OnHitFeedback, transform).transform.parent = null; }
             if (health <= 0) { OnDeath(); }
