@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDetector: {fileID: 282553643132553166}
-  animator: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  animator: {fileID: 5515664288075501123}
+  spriteRenderer: {fileID: 2323810736820892408}
   RespawnPoint: {fileID: 0}
   moveSpeed: 4
   jumpTicks: 7

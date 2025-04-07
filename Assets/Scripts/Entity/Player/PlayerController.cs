@@ -77,8 +77,9 @@ class PlayerController : MonoBehaviour
 
     private void HandleAnimation()
     {
-        animator.SetFloat(0, rb.velocity.x);
+        animator.SetFloat("move", rb.velocity.x);
+        Debug.Log(animator.GetFloat("move"));
         spriteRenderer.flipX = IsFlipped;
-        if (InputManager.jumpInput && jumpTicksLeft > 0) { animator.SetTrigger(1); }
+        if (InputManager.jumpInput && jumpTicksLeft > 0) { animator.SetTrigger("jump"); }
     }
 }
