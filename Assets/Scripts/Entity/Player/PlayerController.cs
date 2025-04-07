@@ -7,6 +7,7 @@ class PlayerController : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] GroundDetector groundDetector;
+    [SerializeField] Animator animator;
     Rigidbody2D rb;
     AbilityController abilityController;
     Action PhysicsProcess = delegate { };
@@ -33,7 +34,7 @@ class PlayerController : MonoBehaviour
         // Event stuff.
         groundDetector.Landed += () => { grounded = true; };
 
-        if(TryGetComponent(out HealthSystem healthSystem))
+        if (TryGetComponent(out HealthSystem healthSystem))
         {
             healthSystem.OnDeath += delegate { transform.position = RespawnPoint.position; };
         }
@@ -48,6 +49,7 @@ class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+        HandleAnimation();
         PhysicsProcess();
     }
 
@@ -70,5 +72,11 @@ class PlayerController : MonoBehaviour
         //IsFlipped = velocity.x < 0;
         if (velocity.x < 0) { IsFlipped = true; }
         else if (velocity.x > 0) { IsFlipped = false; }
+    }
+
+    private void HandleAnimation()
+    {
+        animator.SetFloat(0, rb.velocity.x);
+        if (InputManager.jumpInput && jumpTicksLeft > 0) { animator.SetTrigger(1); }
     }
 }
