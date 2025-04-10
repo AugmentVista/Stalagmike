@@ -9,7 +9,7 @@ namespace Assets.Scripts
         /// <summary>
         /// If disabled, we wont spam the logs when OnDeath is called.
         /// </summary>
-        [SerializeField] bool debugMe = true;
+        [SerializeField] bool debugMe = false;
         [SerializeField]public int maxHp = 1;
         /// <summary>
         /// Called when reaching 0 hp.
