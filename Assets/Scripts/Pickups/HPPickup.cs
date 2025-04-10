@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Pickups
 {
@@ -17,6 +12,7 @@ namespace Assets.Scripts.Pickups
             {
                 // Deal negative damage to make it quicker.
                 hs.TakeDamage(value * -1);
+                hs.maxHp++;
                 Destroy(gameObject);
             }
         }
