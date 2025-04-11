@@ -11,28 +11,15 @@ public class PlayerWeapon : MonoBehaviour
         Vector2 playerPosition = transform.position;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
-        // Calculate direction to the mouse
+        // Get the distance to the mouse
         Vector2 direction = (mousePosition - playerPosition).normalized;
 
-        // Calculate angle to rotate the player
+        // Get the angle from the player to the mouse position
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        
-        // Rotate the player to face the mouse
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // Position the weapon sprite at a fixed distance
+        // position and rotation of the player's weapon relative to player
         weapon.transform.position = playerPosition + direction * weaponDistance;
-
-        // Rotate the weapon sprite to face the mouse
         weapon.transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        // Check if we can attack
-        float distanceToMouse = Vector2.Distance(playerPosition, mousePosition);
-        if (distanceToMouse <= maxAttackRange)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(playerPosition, direction, maxAttackRange);
-
-            // Connect to TileBreakableSystem
-        }
     }
 }
