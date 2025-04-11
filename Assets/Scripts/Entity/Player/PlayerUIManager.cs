@@ -81,8 +81,8 @@ public class PlayerUIManager : MonoBehaviour
 
     private void Update()
     {
-        UpdateHealthValue();
         UpdateMaxHealth();
+        UpdateHealthValue();
     }
 
     private void UpdateMaxHealth()
@@ -122,71 +122,116 @@ public class PlayerUIManager : MonoBehaviour
         }
     }
 
+    private void UpdateHeartVisuals()
+    {
+        int healthToShow = healthSystem.health;
+        int maxHearts = heartPairs.Count * 2;
+        int currentIndex = 0;
+
+        for (int i = 0; i < heartPairs.Count; i++)
+        {
+            HeartPair pair = heartPairs[i];
+            Image left = pair.leftHeart.GetComponent<Image>();
+            Image right = pair.rightHeart.GetComponent<Image>();
+
+            // Left Heart
+            left.enabled = (currentIndex < healthToShow);
+            currentIndex++;
+
+            // Right Heart
+            right.enabled = (currentIndex < healthToShow);
+            currentIndex++;
+        }
+    }
+
+
     private void UpdateHealthValue()
     {
-        // if delta health is postive player gained health, if negative player lost health
         int deltaHealth = healthSystem.health - lastKnownHealth;
-
         if (deltaHealth != 0)
         {
             Debug.LogWarning($"delta health is {deltaHealth}");
-            if (deltaHealth > 0)
-                ApplyHealing(deltaHealth); 
 
-            if (deltaHealth < 0)
-                ApplyDamage(deltaHealth * -1);
+            if (lastKnownHealth != healthSystem.health)
+            {
+                UpdateHeartVisuals();
+                lastKnownHealth = healthSystem.health;
+            }
 
             lastKnownHealth = healthSystem.health;
         }
     }
 
-    public void ApplyDamage(int damageToApply)
-    {
-        int damageTaken = 0;
 
-        // Start from the end of the list and go backwards by decrementing i
-        for (int i = heartPairs.Count - 1; i >= 0 && damageTaken < damageToApply; i--)
-        {
-            HeartPair pair = heartPairs[i];
-            Image rightHeartImage = pair.rightHeart.GetComponent<Image>();
-            Image leftHeartImage = pair.leftHeart.GetComponent<Image>();
 
-            if (damageTaken < damageToApply && rightHeartImage.enabled)
-            {
-                rightHeartImage.enabled = false;
-                damageTaken++;
-            }
+    //private void UpdateHealthValue()
+    //{
+    //    // if delta health is postive player gained health, if negative player lost health
+    //    int deltaHealth = healthSystem.health - lastKnownHealth;
 
-            if (damageTaken < damageToApply && leftHeartImage.enabled)
-            {
-                leftHeartImage.enabled = false;
-                damageTaken++;
-            }
-        }
-    }
+    //    if (deltaHealth != 0)
+    //    {
+    //        Debug.LogWarning($"delta health is {deltaHealth}");
+    //        if (deltaHealth > 0)
+    //            ApplyHealing(deltaHealth); 
 
-    public void ApplyHealing(int healingToApply)
-    {
-        int healingTaken = 0;
+    //        if (deltaHealth < 0)
+    //            ApplyDamage(deltaHealth * -1);
 
-        // Start from the end of the list and go backwards by decrementing i
-        for (int i = heartPairs.Count - 1; i >= 0 && healingTaken < healingToApply; i--)
-        {
-            HeartPair pair = heartPairs[i];
-            Image rightHeartImage = pair.rightHeart.GetComponent<Image>();
-            Image leftHeartImage = pair.leftHeart.GetComponent<Image>();
+    //        lastKnownHealth = healthSystem.health;
+    //    }
+    //}
 
-            if (healingTaken < healingToApply && !leftHeartImage.enabled)
-            {
-                leftHeartImage.enabled = true;
-                healingTaken++;
-            }
+    //public void ApplyDamage(int damageToApply)
+    //{
+    //    int damageTaken = 0;
 
-            if (healingTaken < healingToApply && !rightHeartImage.enabled)
-            {
-                rightHeartImage.enabled = true;
-                healingTaken++;
-            }
-        }
-    }
+    //    // Start from the end of the list and go backwards by decrementing i
+    //    for (int i = heartPairs.Count - 1; i >= 0 && damageTaken < damageToApply; i--)
+    //    {
+    //        HeartPair pair = heartPairs[i];
+    //        Image rightHeartImage = pair.rightHeart.GetComponent<Image>();
+    //        Image leftHeartImage = pair.leftHeart.GetComponent<Image>();
+
+    //        if (damageTaken < damageToApply && rightHeartImage.enabled)
+    //        {
+    //            rightHeartImage.enabled = false;
+    //            damageTaken++;
+    //        }
+
+    //        if (damageTaken < damageToApply && leftHeartImage.enabled)
+    //        {
+    //            leftHeartImage.enabled = false;
+    //            damageTaken++;
+    //        }
+    //    }
+    //}
+
+    //public void ApplyHealing(int healingToApply)
+    //{
+    //    int healingLeft = healingToApply;
+
+    //    // Fill existing damaged hearts from left to right
+    //    for (int i = 0; i < heartPairs.Count && healingLeft > 0; i++)
+    //    {
+    //        HeartPair pair = heartPairs[i];
+    //        Image left = pair.leftHeart.GetComponent<Image>();
+    //        Image right = pair.rightHeart.GetComponent<Image>();
+
+    //        // Heal left first
+    //        if (!left.enabled && healingLeft > 0)
+    //        {
+    //            left.enabled = true;
+    //            healingLeft--;
+    //        }
+
+    //        // heal right second
+    //        if (!right.enabled && healingLeft > 0)
+    //        {
+    //            right.enabled = true;
+    //            healingLeft--;
+    //        }
+    //    }
+    //}
+
 }
