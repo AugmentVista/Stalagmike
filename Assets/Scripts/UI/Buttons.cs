@@ -26,4 +26,9 @@ public class Buttons : MonoBehaviour
     {
         if (OptionsUI.activeSelf) { gameManager.OptionsMenuPlayGame(); }
     }
+
+    public void MainMenuOnClick()
+    {
+        if (OptionsUI.activeSelf || PauseMenuUI.activeSelf) { gameManager.MainMenu(); }
+    }
 }

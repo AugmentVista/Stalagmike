@@ -29,6 +29,14 @@ public class GameManager : MonoBehaviour
             UnfreezeTime();
         }
     }
+    public void MainMenu()
+    {
+        if (UiManager.uiState != UserInterfaceManager.UserInterfaceState.MainMenu)
+        {
+            UiManager.RequestUIUpdate("MainMenu");
+            FreezeTime();
+        }
+    }
     /// <summary>
     /// Continue button in pause menu calls this method to change state to gameplay and unfreeze time
     /// </summary>
