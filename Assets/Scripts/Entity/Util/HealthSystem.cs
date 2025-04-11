@@ -21,7 +21,6 @@ namespace Assets.Scripts
         private void Awake()
         {
             health = maxHp;
-            Debug.Log($"PLAYER HEALTH IS {health} AND MAX HP IS {maxHp}");
         }
 
         private void Start()

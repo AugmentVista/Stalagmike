@@ -1,5 +1,4 @@
 using Assets.Scripts;
-using Assets.Scripts.Entity.Util;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
@@ -149,8 +148,6 @@ public class PlayerUIManager : MonoBehaviour
         int deltaHealth = healthSystem.health - lastKnownHealth;
         if (deltaHealth != 0)
         {
-            Debug.LogWarning($"delta health is {deltaHealth}");
-
             if (lastKnownHealth != healthSystem.health)
             {
                 UpdateHeartVisuals();
