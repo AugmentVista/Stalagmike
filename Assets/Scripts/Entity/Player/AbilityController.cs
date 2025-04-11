@@ -113,7 +113,7 @@ internal class AbilityController : MonoBehaviour
         Rigidbody2D projectileRB = projectile.GetComponent<Rigidbody2D>();
 
         // Set start velocity.
-        projectileRB.velocity = tempStartVector * startingVelocityScale;
+        projectileRB.velocity = tempStartVector * startingVelocityScale + rb.velocity;
 
         // Set hit behavior.
         projectileHitbox.OnHit += OnRangedHit;
