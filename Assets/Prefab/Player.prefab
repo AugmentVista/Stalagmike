@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMe: 1
-  maxHp: 5
-  OnHitFeedback: {fileID: 0}
+  maxHp: 4
+  OnHitFeedback: {fileID: 2487512717988778431, guid: b184de26655130d4e86234469e0ba329, type: 3}
 --- !u!95 &5515664288075501123
 Animator:
   serializedVersion: 5

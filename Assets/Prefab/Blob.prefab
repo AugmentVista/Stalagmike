@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381112cbbc711164f86af15c47b51ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockBreakHitbox: {fileID: 0}
 --- !u!1 &2539626544827317950
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a822446e42d2ef74fa7af3fd22bd579a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMe: 1
+  debugMe: 0
   maxHp: 10
   OnHitFeedback: {fileID: 2487512717988778431, guid: b184de26655130d4e86234469e0ba329, type: 3}
 --- !u!61 &6522701635895470438

@@ -4,18 +4,18 @@ namespace Assets.Scripts.Pickups
 {
     class HPPickup : MonoBehaviour
     {
-        [SerializeField] int value;
+        [SerializeField] int healValue;
 
         // This must be a factor of 2
-        [SerializeField] int maxHealthIncrease = 2;
+        [SerializeField] int maxHealthUp = 2;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out HealthSystem hs) && collision.TryGetComponent(out PlayerController ignored))
             {
                 // Deal negative damage to make it quicker.
-                hs.TakeDamage(value * -1);
-                hs.maxHp += maxHealthIncrease;
+                hs.Heal(healValue, maxHealthUp);
+                Debug.LogWarning($"Max health increased to {hs.maxHp}");
                 Destroy(gameObject);
             }
         }

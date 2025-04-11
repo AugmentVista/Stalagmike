@@ -10,7 +10,7 @@ namespace Assets.Scripts
         /// If disabled, we wont spam the logs when OnDeath is called.
         /// </summary>
         [SerializeField] bool debugMe = false;
-        [SerializeField]public int maxHp = 1;
+        public int maxHp = 1;
         /// <summary>
         /// Called when reaching 0 hp.
         /// </summary>
@@ -18,11 +18,14 @@ namespace Assets.Scripts
         public GameObject OnHitFeedback;
         public int health { get; protected set; } = 0;
 
-        private void Start()
+        private void Awake()
         {
             health = maxHp;
-            //Debug.Log($"HealthSystem displays {health}");
+            Debug.Log($"PLAYER HEALTH IS {health} AND MAX HP IS {maxHp}");
+        }
 
+        private void Start()
+        {
             // Add a lambda to improve debugging, and prevent errors when calling this without anything assigned.
             OnDeath += delegate { if (debugMe) { Debug.Log($"{name} was killed."); health = maxHp; } };
         }
@@ -36,11 +39,23 @@ namespace Assets.Scripts
             if (hit.damage<=0) { Debug.LogWarning("HitInfo.damage probably shouldn't be negative, but I'm guessing I was too lazy to do it right."); }
             health -= hit.damage;
 
-            Debug.Log($"Took {hit.damage} damage, now at {health} hp.");
             if (health > maxHp) { health = maxHp; Debug.Log("HP exceeded max, set HP to max."); }
 
+            Debug.Log($"Took {hit.damage} damage, now at {health} hp.");
+            
             if (OnHitFeedback!=null) { Instantiate(OnHitFeedback, transform).transform.parent = null; }
             if (health <= 0) { OnDeath(); }
+        }
+
+        public void Heal(int healValue, int maxHealthValue)
+        {
+            maxHp += maxHealthValue;
+            health += healValue;
+            if (health > maxHp) 
+            {
+                health = maxHp; Debug.Log("HP exceeded max, set HP to max."); 
+            }
+            Debug.Log($"PLAYER HEALTH IS {health} AND MAX HP IS {maxHp}");
         }
     }
 }

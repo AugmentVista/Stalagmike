@@ -21,13 +21,18 @@ public class PlayerUIManager : MonoBehaviour
 
     [SerializeField] private GameObject fullHeartPrefab;
 
-    GameObject player;
+    [SerializeField] GameObject player;
 
+    [SerializeField] GameObject playerCanvas;
+
+    int spaceBetweenHearts = 100;
     int lastKnownMaxHP;
     int lastKnownHealth;
 
     private void Start()
     {
+        playerCanvas = transform.parent.gameObject;
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null && player.TryGetComponent(out HealthSystem playerHealthSystem))
@@ -35,6 +40,7 @@ public class PlayerUIManager : MonoBehaviour
             healthSystem = playerHealthSystem;
             lastKnownMaxHP = healthSystem.maxHp;
             lastKnownHealth = healthSystem.health;
+            SetMaxUIHealth();
         }
         else
         {
@@ -45,14 +51,20 @@ public class PlayerUIManager : MonoBehaviour
     public void SetMaxUIHealth()
     {
         int fullHeartCount = healthSystem.maxHp / 2;
-        Vector3 heartPositions = new Vector3(0, 0, 0);
-
+        
         for (int i = 0; i < fullHeartCount; i++)
         {
-            heartPositions.x *= i * 100;
-            GameObject fullheart = Instantiate(fullHeartPrefab, heartPositions, Quaternion.identity);
+            GameObject fullheart = Instantiate(fullHeartPrefab, transform.position, Quaternion.identity, transform);
+            fullheart.GetComponent<RectTransform>().anchoredPosition = new Vector2(0 + i* spaceBetweenHearts, 0 );
             listOfFullHearts.Add(fullheart);
+            Debug.Log($"do hearts exist?");
         }
+    }
+
+    private void Update()
+    {
+        UpdateMaxHealth();
+        UpdateHealthValue();
     }
 
     private void UpdateMaxHealth()
@@ -61,13 +73,12 @@ public class PlayerUIManager : MonoBehaviour
         {
             int deltaMaxHealth = healthSystem.maxHp - lastKnownMaxHP;
             lastKnownMaxHP = healthSystem.maxHp;
-            Vector3 heartPositions = new Vector3(0, 0, 0);
 
-            for (int i = 0; i < deltaMaxHealth; i++)
+            for (int i = 0; i < deltaMaxHealth / 2; i++)
             {
-                // Use the amount of hearts to determine the position of the next heart.
-                heartPositions.x = listOfFullHearts.Count * 100 + i * 100;
-                GameObject fullheart = Instantiate(fullHeartPrefab, heartPositions, Quaternion.identity);
+                GameObject fullheart = Instantiate(fullHeartPrefab, transform.position, Quaternion.identity, transform);
+                fullheart.GetComponent<RectTransform>().anchoredPosition = new Vector2(0 + i + listOfFullHearts.Count * 100, 0);
+
                 listOfFullHearts.Add(fullheart);
 
                 // Get reference to the halves of the heart that was just created
@@ -93,11 +104,6 @@ public class PlayerUIManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        UpdateHealthValue();
-    }
-
     private void UpdateHealthValue()
     {
         // if delta health is postive player gained health, if negative player lost health
@@ -105,6 +111,7 @@ public class PlayerUIManager : MonoBehaviour
 
         if (deltaHealth != 0)
         {
+            Debug.LogWarning($"delta health is {deltaHealth}");
             if (deltaHealth > 0)
                 ApplyHealing(deltaHealth); 
 

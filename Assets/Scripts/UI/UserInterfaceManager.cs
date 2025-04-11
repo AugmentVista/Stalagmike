@@ -44,7 +44,6 @@ public class UserInterfaceManager : MonoBehaviour
 
     public void RequestUIUpdate(string desiredScreenName)
     {
-        Debug.Log($"Attempting to change UI state from {uiState} to {desiredScreenName}");
         // Try to parse the string argument into an enum value, upper/lower case doesn't matter
         if (Enum.TryParse(desiredScreenName, true, out UserInterfaceState state))
         {
