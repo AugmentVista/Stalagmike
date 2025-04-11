@@ -17,6 +17,7 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private DifficultySettings hardSettings;
 
     private DifficultyToggle selectedToggle;
+    public static bool IsDifficultySelected { get; private set; }
 
     private void Start()
     {
@@ -42,6 +43,7 @@ public class DifficultyManager : MonoBehaviour
 
     public void ConfirmDifficulty()
     {
+        IsDifficultySelected = true;
         FoeSpawner[] allSpawners = FindObjectsOfType<FoeSpawner>();
         HpSpawn[] allHpSpawns = FindObjectsOfType<HpSpawn>();
 

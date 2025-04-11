@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.28773582, b: 0.28773582, a: 0.78431374}
+  m_Color: {r: 0.9056604, g: 0.44417626, b: 0.23495908, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -377,10 +377,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23005662a914c1f438904100309e46bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyToggles:
-  - {fileID: 758698305105450771}
-  - {fileID: 3449397203323833409}
-  - {fileID: 5177575151339236007}
+  easyToggle: {fileID: 0}
+  mediumToggle: {fileID: 0}
+  hardToggle: {fileID: 0}
+  confirmButton: {fileID: 0}
+  difficultyPanel: {fileID: 0}
+  easySettings:
+    difficultyName: 
+    spawnRate: 0
+    maxSpawns: 0
+  mediumSettings:
+    difficultyName: 
+    spawnRate: 0
+    maxSpawns: 0
+  hardSettings:
+    difficultyName: 
+    spawnRate: 0
+    maxSpawns: 0
 --- !u!1 &1619897347258894026
 GameObject:
   m_ObjectHideFlags: 0

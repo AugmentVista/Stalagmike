@@ -26,10 +26,17 @@ public class HpSpawn : MonoBehaviour
     int amountToSpawnZone1;
     int amountToSpawnZone2;
 
+    private bool hasDistributedHealth = false;
+
     public void ApplyDifficulty(DifficultySetting selectedDifficulty)
     {
         difficulty = selectedDifficulty;
-        DistributeHealthAcrossMap();
+
+        if (!hasDistributedHealth)
+        {
+            DistributeHealthAcrossMap();
+            hasDistributedHealth = true;
+        }
     }
 
     void DistributeHealthAcrossMap()

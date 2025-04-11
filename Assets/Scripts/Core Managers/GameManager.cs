@@ -71,18 +71,24 @@ public class GameManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// If the game isn't paused, pause it, if the game is paused, unpause it.
-    /// If the game UI state is MainMenu, the game pauses, when it isn't Main Menu
-    /// the game resumes.
+    /// If the game isn't paused, pause it; if the game is paused, unpause it.
+    /// Pausing is only allowed when the game state is 'GamePlay'.
     /// </summary> 
     public void PauseGame()
     {
-        if (InputManager.pauseInput && !isPaused)  
+        // Ensure that pausing only happens if the current UI state is "GamePlay"
+        if (UiManager.uiState == UserInterfaceManager.UserInterfaceState.MainMenu || UiManager.uiState == UserInterfaceManager.UserInterfaceState.Options)
+        {
+            return;
+        }
+
+        // Proceed with normal pause/unpause if the UI state is "GamePlay"
+        if (InputManager.pauseInput && !isPaused)
         {
             UiManager.RequestUIUpdate("Paused");
             FreezeTime();
         }
-        else if (InputManager.pauseInput && isPaused) 
+        else if (InputManager.pauseInput && isPaused)
         {
             UiManager.RequestUIUpdate("GamePlay");
             UnfreezeTime();
