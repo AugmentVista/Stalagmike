@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isPaused = false;
-    [SerializeField]  UserInterfaceManager UiManager;
+    [SerializeField] UserInterfaceManager UiManager;
 
     void Start()
     {
@@ -29,6 +29,14 @@ public class GameManager : MonoBehaviour
             UnfreezeTime();
         }
     }
+    public void MainMenu()
+    {
+        if (UiManager.uiState != UserInterfaceManager.UserInterfaceState.MainMenu)
+        {
+            UiManager.RequestUIUpdate("MainMenu");
+            FreezeTime();
+        }
+    }
     /// <summary>
     /// Continue button in pause menu calls this method to change state to gameplay and unfreeze time
     /// </summary>
@@ -40,28 +48,52 @@ public class GameManager : MonoBehaviour
             UnfreezeTime();
         }
     }
-
     /// <summary>
-    /// If the game isn't paused, pause it, if the game is paused, unpause it.
-    /// If the game UI state is MainMenu, the game pauses, when it isn't Main Menu
-    /// the game resumes.
-    /// </summary> 
-    public void PauseGame()
+    /// Options button in pause or main menu calls this method to change state to Options and freeze time
+    /// </summary>
+    public void OptionsMenu()
     {
-
-        if (InputManager.pauseInput && !isPaused)  
+        if (UiManager.uiState != UserInterfaceManager.UserInterfaceState.Options)
         {
-            UiManager.RequestUIUpdate("Paused");
+            UiManager.RequestUIUpdate("Options");
             FreezeTime();
         }
-        else if (InputManager.pauseInput && isPaused) 
+    }
+    /// <summary>
+    /// Play button in options calls this method to change state to gameplay and unfreezes time
+    /// </summary>
+    public void OptionsMenuPlayGame()
+    {
+        if (UiManager.uiState == UserInterfaceManager.UserInterfaceState.Options)
         {
             UiManager.RequestUIUpdate("GamePlay");
             UnfreezeTime();
         }
     }
+    /// <summary>
+    /// If the game isn't paused, pause it; if the game is paused, unpause it.
+    /// Pausing is only allowed when the game state is 'GamePlay'.
+    /// </summary> 
+    public void PauseGame()
+    {
+        // Ensure that pausing only happens if the current UI state is "GamePlay"
+        if (UiManager.uiState == UserInterfaceManager.UserInterfaceState.MainMenu || UiManager.uiState == UserInterfaceManager.UserInterfaceState.Options)
+        {
+            return;
+        }
 
-
+        // Proceed with normal pause/unpause if the UI state is "GamePlay"
+        if (InputManager.pauseInput && !isPaused)
+        {
+            UiManager.RequestUIUpdate("Paused");
+            FreezeTime();
+        }
+        else if (InputManager.pauseInput && isPaused)
+        {
+            UiManager.RequestUIUpdate("GamePlay");
+            UnfreezeTime();
+        }
+    }
     /// <summary>
     /// Sets timescale to 1 if it isn't 1
     /// </summary>

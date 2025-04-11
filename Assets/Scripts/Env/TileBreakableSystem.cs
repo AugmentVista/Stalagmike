@@ -31,13 +31,13 @@ public class TileBreakableSystem : MonoBehaviour
             }
         }
 
-        Debug.LogWarning(numberOfPositionsWithtin);
+        //Debug.LogWarning(numberOfPositionsWithtin);
         
     }
 
     public void TryBreakTile(Vector3 attackPosition, int damage)
     {
-        Debug.LogWarning("Am i being hit?");
+        //Debug.LogWarning("Am i being hit?");
         Vector3Int cellPosition = tilemap.WorldToCell(attackPosition);  // Convert the attack position to Tilemap cell position
 
         // Check if the tile is breakable

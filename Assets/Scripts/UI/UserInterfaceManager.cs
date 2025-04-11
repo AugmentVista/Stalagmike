@@ -13,8 +13,8 @@ public class UserInterfaceManager : MonoBehaviour
     public GameObject pausedUI;
     public GameObject gamePlayUI;
     public GameObject optionsUI;
-    public GameObject gameOverUI;
-    public GameObject gameWinUI;
+    //public GameObject gameOverUI;
+    //public GameObject gameWinUI;
     
     public enum UserInterfaceState
     {
@@ -29,27 +29,15 @@ public class UserInterfaceManager : MonoBehaviour
 
     public UserInterfaceState uiState;
 
-    // private void Awake()
-    // {
-    //     // Singleton logic for UserInterfaceManager instance
-    //     if (instance == null)
-    //     {
-    //         instance = this;
-    //     }
-    //     else
-    //     {
-    //         Destroy(gameObject);
-    //     }
-    // }
-
     public void RequestUIUpdate(string desiredScreenName)
     {
-        Debug.Log($"Attempting to change UI state from {uiState} to {desiredScreenName}");
         // Try to parse the string argument into an enum value, upper/lower case doesn't matter
         if (Enum.TryParse(desiredScreenName, true, out UserInterfaceState state))
         {
             // Update the UI if the new state matches
-           UpdateUI(state);
+            Debug.Log($"Successfully parsed state: {state}");
+            uiState = state;
+            UpdateUI(state);
         }
         else
         {
@@ -65,17 +53,20 @@ public class UserInterfaceManager : MonoBehaviour
             case UserInterfaceState.MainMenu:
                 MainMenuUI();
                 break;
-            case UserInterfaceState.GamePlay:
-                GamePlayUI();
-                break;
             case UserInterfaceState.Paused:
                 PausedUI();
                 break;
+            case UserInterfaceState.GamePlay:
+                GamePlayUI();
+                break;
+            case UserInterfaceState.Options:
+                OptionsUI();
+                break;
             case UserInterfaceState.GameWin:
-                GameWinUI();
+                //GameWinUI();
                 break;
             case UserInterfaceState.GameLose:
-                GameOverUI();
+                //GameOverUI();
                 break;
             default:
                 NoUI();
@@ -99,14 +90,14 @@ public class UserInterfaceManager : MonoBehaviour
     {
         HideAllUI(optionsUI);
     }
-    protected void GameWinUI()
-    {
-        HideAllUI(gameWinUI);
-    }
-    protected void GameOverUI()
-    {
-        HideAllUI(gameOverUI);
-    }
+    //protected void GameWinUI()
+    //{
+    //    HideAllUI(gameWinUI);
+    //}
+    //protected void GameOverUI()
+    //{
+    //    HideAllUI(gameOverUI);
+    //}
     public void PausedUI()
     {
         HideAllUI(pausedUI);
@@ -119,8 +110,8 @@ public class UserInterfaceManager : MonoBehaviour
         gamePlayUI.SetActive(false);
         optionsUI.SetActive(false);
         pausedUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        gameWinUI.SetActive(false);
+        //gameOverUI.SetActive(false);
+        //gameWinUI.SetActive(false);
         ActiveUI.SetActive(true);
     }
 }
