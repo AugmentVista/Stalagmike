@@ -51,20 +51,38 @@ public class PlayerUIManager : MonoBehaviour
     public void SetMaxUIHealth()
     {
         int fullHeartCount = healthSystem.maxHp / 2;
-        
+
         for (int i = 0; i < fullHeartCount; i++)
         {
             GameObject fullheart = Instantiate(fullHeartPrefab, transform.position, Quaternion.identity, transform);
-            fullheart.GetComponent<RectTransform>().anchoredPosition = new Vector2(0 + i* spaceBetweenHearts, 0 );
+            fullheart.GetComponent<RectTransform>().anchoredPosition = new Vector2(0 + i * spaceBetweenHearts, 0);
             listOfFullHearts.Add(fullheart);
-            Debug.Log($"do hearts exist?");
+            Debug.Log($"Initial heart created");
+
+            Transform left = fullheart.transform.Find("Left Heart");
+            Transform right = fullheart.transform.Find("Right Heart");
+
+            if (left == null || right == null)
+            {
+                Debug.LogWarning($"Heart prefab is missing 'Left Heart' or 'Right Heart' child objects.");
+                continue;
+            }
+
+            HeartPair pair = new HeartPair
+            {
+                leftHeart = left.gameObject,
+                rightHeart = right.gameObject
+            };
+
+            heartPairs.Add(pair);
         }
     }
 
+
     private void Update()
     {
-        UpdateMaxHealth();
         UpdateHealthValue();
+        UpdateMaxHealth();
     }
 
     private void UpdateMaxHealth()
@@ -116,7 +134,7 @@ public class PlayerUIManager : MonoBehaviour
                 ApplyHealing(deltaHealth); 
 
             if (deltaHealth < 0)
-                ApplyDamage(deltaHealth);
+                ApplyDamage(deltaHealth * -1);
 
             lastKnownHealth = healthSystem.health;
         }
