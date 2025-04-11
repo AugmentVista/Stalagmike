@@ -1503,6 +1503,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1643004763}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &237228439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5177575151339236007, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+  m_PrefabInstance: {fileID: 4007401499425676734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922016d093c116f47b22e7518500a17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &249600438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,8 +2071,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 400, y: 150}
+  m_AnchoredPosition: {x: 0, y: 192.5}
+  m_SizeDelta: {x: 400, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486231866
 MonoBehaviour:
@@ -3297,6 +3308,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &798851554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1023310635207485871, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+  m_PrefabInstance: {fileID: 4007401499425676734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &798851556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+  m_PrefabInstance: {fileID: 4007401499425676734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798851554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23005662a914c1f438904100309e46bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &812388271
 GameObject:
   m_ObjectHideFlags: 0
@@ -5148,6 +5175,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120112539}
   m_CullTransparentMesh: 1
+--- !u!1 &1135757155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6063368957630119506, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+  m_PrefabInstance: {fileID: 4007401499425676734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1187787856
 GameObject:
   m_ObjectHideFlags: 0
@@ -8617,6 +8649,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1776274535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820680902 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3449397203323833409, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+  m_PrefabInstance: {fileID: 4007401499425676734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922016d093c116f47b22e7518500a17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1827045497
 GameObject:
   m_ObjectHideFlags: 0
@@ -9768,6 +9811,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018638559}
   m_CullTransparentMesh: 1
+--- !u!114 &2129370391 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 758698305105450771, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+  m_PrefabInstance: {fileID: 4007401499425676734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922016d093c116f47b22e7518500a17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &571947263627613763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33985,6 +34039,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 129
       objectReference: {fileID: 0}
+    - target: {fileID: 1023310635207485871, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2548210117819352766, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 193.7786
@@ -34137,6 +34195,62 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.00099373
       objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: easyToggle
+      value: 
+      objectReference: {fileID: 2129370391}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: hardToggle
+      value: 
+      objectReference: {fileID: 237228439}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: mediumToggle
+      value: 
+      objectReference: {fileID: 1820680902}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: confirmButton
+      value: 
+      objectReference: {fileID: 1135757155}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: difficultyPanel
+      value: 
+      objectReference: {fileID: 798851554}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: easySettings.maxSpawns
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: easySettings.spawnRate
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: hardSettings.maxSpawns
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: hardSettings.spawnRate
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: mediumSettings.maxSpawns
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: mediumSettings.spawnRate
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: easySettings.difficultyName
+      value: easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: hardSettings.difficultyName
+      value: hard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800343533430981559, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: mediumSettings.difficultyName
+      value: medium
+      objectReference: {fileID: 0}
     - target: {fileID: 8001648667967919080, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
       propertyPath: m_Name
       value: Difficulty Button
@@ -34156,6 +34270,34 @@ PrefabInstance:
     - target: {fileID: 8502002552396706607, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -199.13678
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045035632463383178, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045035632463383178, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045035632463383178, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 798851556}
+    - target: {fileID: 9045035632463383178, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045035632463383178, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ConfirmDifficulty
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045035632463383178, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DifficultyManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045035632463383178, guid: b255d626ec2e01a4a888e1944ec82ac4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

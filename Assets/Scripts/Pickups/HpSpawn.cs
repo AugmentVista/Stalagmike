@@ -26,9 +26,9 @@ public class HpSpawn : MonoBehaviour
     int amountToSpawnZone1;
     int amountToSpawnZone2;
 
-    void Start()
+    public void ApplyDifficulty(DifficultySetting selectedDifficulty)
     {
-        //difficulty = DifficultySetting.easy;
+        difficulty = selectedDifficulty;
         DistributeHealthAcrossMap();
     }
 
@@ -84,5 +84,4 @@ public class HpSpawn : MonoBehaviour
             }
         }
     }
-
 }

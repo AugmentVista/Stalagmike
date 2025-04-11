@@ -68,5 +68,13 @@ namespace Assets.Scripts.Entity.Foe
                 hs.TakeDamage(int.MaxValue);
             }
         }
+
+        // changes spawn rates from input from difficulty settings in options
+        public void ApplyDifficultySettings(DifficultySettings settings)
+        {
+            spawnRate = settings.spawnRate;
+            maxSpawns = settings.maxSpawns;
+            Debug.Log($"Difficulty applied: SpawnRate = {spawnRate}, MaxSpawns = {maxSpawns}");
+        }
     }
 }
