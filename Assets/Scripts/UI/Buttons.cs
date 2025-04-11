@@ -9,42 +9,21 @@ public class Buttons : MonoBehaviour
 
     public void PlayOnClick()
     {
-        if (MainMenuUI.activeSelf || OptionsUI.activeSelf)
-        {
-            gameManager.MainMenuPlayGame();
-            //MainMenuUI.SetActive(false);
-            //OptionsUI.SetActive(false);
-        }
+        if (MainMenuUI.activeSelf || OptionsUI.activeSelf) { gameManager.MainMenuPlayGame(); }
     }
 
     public void ContinueOnClick()
     {
-        if (PauseMenuUI.activeSelf || OptionsUI.activeSelf)
-        {
-            gameManager.PauseMenuPlayGame();
-            //PauseMenuUI.SetActive(false);
-            //OptionsUI.SetActive(false);
-        }
+        if (PauseMenuUI.activeSelf || OptionsUI.activeSelf) { gameManager.PauseMenuPlayGame(); }
     }
 
     public void OptionsOnClick()
     {
-        if (PauseMenuUI.activeSelf || MainMenuUI.activeSelf)
-        {
-            gameManager.OptionsMenu();
-            //PauseMenuUI.SetActive(false);
-            //MainMenuUI.SetActive(false);
-        }
+        if (PauseMenuUI.activeSelf || MainMenuUI.activeSelf) { gameManager.OptionsMenu(); }
     }
 
     public void OptionsPlayGame()
     {
-        if (OptionsUI.activeSelf)
-        { 
-            gameManager.OptionsMenuPlayGame();
-            //MainMenuUI.SetActive(false);
-            //OptionsUI.SetActive(false);
-        }
+        if (OptionsUI.activeSelf) { gameManager.OptionsMenuPlayGame(); }
     }
-
 }
