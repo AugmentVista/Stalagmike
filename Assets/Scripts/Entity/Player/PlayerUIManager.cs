@@ -144,7 +144,6 @@ public class PlayerUIManager : MonoBehaviour
         }
     }
 
-
     private void UpdateHealthValue()
     {
         int deltaHealth = healthSystem.health - lastKnownHealth;
@@ -161,77 +160,5 @@ public class PlayerUIManager : MonoBehaviour
             lastKnownHealth = healthSystem.health;
         }
     }
-
-
-
-    //private void UpdateHealthValue()
-    //{
-    //    // if delta health is postive player gained health, if negative player lost health
-    //    int deltaHealth = healthSystem.health - lastKnownHealth;
-
-    //    if (deltaHealth != 0)
-    //    {
-    //        Debug.LogWarning($"delta health is {deltaHealth}");
-    //        if (deltaHealth > 0)
-    //            ApplyHealing(deltaHealth); 
-
-    //        if (deltaHealth < 0)
-    //            ApplyDamage(deltaHealth * -1);
-
-    //        lastKnownHealth = healthSystem.health;
-    //    }
-    //}
-
-    //public void ApplyDamage(int damageToApply)
-    //{
-    //    int damageTaken = 0;
-
-    //    // Start from the end of the list and go backwards by decrementing i
-    //    for (int i = heartPairs.Count - 1; i >= 0 && damageTaken < damageToApply; i--)
-    //    {
-    //        HeartPair pair = heartPairs[i];
-    //        Image rightHeartImage = pair.rightHeart.GetComponent<Image>();
-    //        Image leftHeartImage = pair.leftHeart.GetComponent<Image>();
-
-    //        if (damageTaken < damageToApply && rightHeartImage.enabled)
-    //        {
-    //            rightHeartImage.enabled = false;
-    //            damageTaken++;
-    //        }
-
-    //        if (damageTaken < damageToApply && leftHeartImage.enabled)
-    //        {
-    //            leftHeartImage.enabled = false;
-    //            damageTaken++;
-    //        }
-    //    }
-    //}
-
-    //public void ApplyHealing(int healingToApply)
-    //{
-    //    int healingLeft = healingToApply;
-
-    //    // Fill existing damaged hearts from left to right
-    //    for (int i = 0; i < heartPairs.Count && healingLeft > 0; i++)
-    //    {
-    //        HeartPair pair = heartPairs[i];
-    //        Image left = pair.leftHeart.GetComponent<Image>();
-    //        Image right = pair.rightHeart.GetComponent<Image>();
-
-    //        // Heal left first
-    //        if (!left.enabled && healingLeft > 0)
-    //        {
-    //            left.enabled = true;
-    //            healingLeft--;
-    //        }
-
-    //        // heal right second
-    //        if (!right.enabled && healingLeft > 0)
-    //        {
-    //            right.enabled = true;
-    //            healingLeft--;
-    //        }
-    //    }
-    //}
 
 }
