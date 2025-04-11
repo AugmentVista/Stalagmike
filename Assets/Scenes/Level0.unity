@@ -2567,11 +2567,16 @@ MonoBehaviour:
   - {fileID: 429902158}
   - {fileID: 420344180}
   - {fileID: 1582063296}
+  - {fileID: 1507485967}
+  - {fileID: 1570458474}
   HealthPickupSpawnLocationsZone2:
   - {fileID: 581110021}
   - {fileID: 1625474295}
   - {fileID: 1023624612}
   - {fileID: 198045102}
+  - {fileID: 1619443531}
+  - {fileID: 394240069}
+  - {fileID: 18918585}
 --- !u!1 &632127956
 GameObject:
   m_ObjectHideFlags: 0
